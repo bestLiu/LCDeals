@@ -46,6 +46,8 @@
     if ([[UIDevice currentDevice].systemVersion floatValue] >= 7.0) {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
     //六十四像素的背景view
     _sixtyFourPixelsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
     _sixtyFourPixelsView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
@@ -88,6 +90,8 @@
     [_backButton setImageEdgeInsets:UIEdgeInsetsMake(0.0, -13.0, 0.0, 0.0)];
     [_customNavigationBar addSubview:_backButton];
 
+
+    
 }
 
 - (void)viewDidLoad
@@ -107,9 +111,14 @@
 - (void)backButtonClicked:(UIButton *)sender
 {
     if (self.navigationController.viewControllers.count > 1) {
-        //防止多次连续点击崩溃
         [self.navigationController popViewControllerAnimated:YES];
     }
+}
+
+- (void)pushViewController:(UIViewController *)controller animated:(BOOL)animated
+{
+    controller.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:controller animated:animated];
 }
 
 @end

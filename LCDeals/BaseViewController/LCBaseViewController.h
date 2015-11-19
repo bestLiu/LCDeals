@@ -22,4 +22,8 @@
 //64像素背景色view
 @property (nonatomic, strong)UIView *sixtyFourPixelsView;
 
+
+- (void)backButtonClicked:(UIButton *)sender;
+- (void)pushViewController:(UIViewController *)controller animated:(BOOL)animated;
+
 @end
