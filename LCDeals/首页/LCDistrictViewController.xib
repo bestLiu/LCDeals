@@ -16,8 +16,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eep-Yp-XIh" userLabel="切换城市的标题">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                    <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                     <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_cell_rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="iGa-91-GRE">
+                            <rect key="frame" x="573" y="14" width="17" height="17"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="17" id="TEc-aA-6tv"/>
+                                <constraint firstAttribute="width" constant="17" id="yPy-HV-RBO"/>
+                            </constraints>
+                        </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qb1-Gd-2bu">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -31,13 +38,6 @@
                                 <action selector="changeCity" destination="-1" eventType="touchUpInside" id="NWh-FY-ml8"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_cell_rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="iGa-91-GRE">
-                            <rect key="frame" x="573" y="14" width="17" height="17"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="17" id="TEc-aA-6tv"/>
-                                <constraint firstAttribute="width" constant="17" id="yPy-HV-RBO"/>
-                            </constraints>
-                        </imageView>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="Qb1-Gd-2bu" secondAttribute="trailing" id="IYo-dC-ZSA"/>
@@ -52,7 +52,7 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Eep-Yp-XIh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="LZx-z1-M5x"/>
+                <constraint firstItem="Eep-Yp-XIh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="LZx-z1-M5x"/>
                 <constraint firstItem="Eep-Yp-XIh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="a96-sK-BTQ"/>
                 <constraint firstAttribute="trailing" secondItem="Eep-Yp-XIh" secondAttribute="trailing" id="vLT-rt-PiB"/>
             </constraints>

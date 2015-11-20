@@ -12,8 +12,8 @@
 #import "LCHomeDropSubTableViewCell.h"
 
 @interface LCHomeDropView ()<UITableViewDataSource, UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *mainTableView;
-@property (weak, nonatomic) IBOutlet UITableView *followTableViw;
+@property (weak, nonatomic)  UITableView *mainTableView;
+@property (weak, nonatomic)  UITableView *followTableViw;
 //@property (nonatomic, weak) id<LCHomeDropViewData>selectedData;
 /**
  * 记录左边选中的行号
@@ -25,14 +25,28 @@
 
 @implementation LCHomeDropView
 
-+ (instancetype)dropView
+- (instancetype)initWithFrame:(CGRect)frame
 {
-    return [[NSBundle mainBundle] loadNibNamed:@"LCHomeDropView" owner:nil options:nil][0];
-}
-
-- (void)awakeFromNib
-{
-    self.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+    NSLog(@"%@",NSStringFromCGRect(frame));
+    if (self = [super initWithFrame:frame]) {
+        UITableView *mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0,CGRectGetWidth(frame)/2.0 , CGRectGetHeight(frame)) style:UITableViewStylePlain];
+        mainTableView.dataSource = self;
+        mainTableView.delegate = self;
+        mainTableView.showsVerticalScrollIndicator = NO;
+        mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        [self addSubview:mainTableView];
+        _mainTableView = mainTableView;
+        
+        UITableView *followTableView = [[UITableView alloc] initWithFrame:CGRectMake(CGRectGetWidth(frame)/2.0 , 0,CGRectGetWidth(frame)/2.0 , CGRectGetHeight(frame)) style:UITableViewStylePlain];
+        followTableView.dataSource = self;
+        followTableView.delegate = self;
+        followTableView.showsVerticalScrollIndicator = NO;
+        followTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        [self addSubview:followTableView];
+        _followTableViw = followTableView;
+    }
+    
+    return self;
 }
 
 #pragma mark 数据源

@@ -1,5 +1,5 @@
 //
-//  LCCategoryViewController.h
+//  LCCityViewController.h
 //  美团HD
 //
 //  Created by mac1 on 15/9/7.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "LCBaseViewController.h"
 
-@interface LCCategoryViewController : LCBaseViewController
+@interface LCCityViewController : LCBaseViewController
 
 @end

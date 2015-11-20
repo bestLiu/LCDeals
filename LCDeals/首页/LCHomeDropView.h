@@ -54,9 +54,10 @@
 
 //@property (nonatomic, strong) NSArray *categroies;
 
-+ (instancetype)dropView;
 
 @property (nonatomic, weak) id<LCHomeDropViewDataSource> dataSource;
 @property (nonatomic, weak) id<LCHomeDropViewDelegate> delegate;
+
+- (instancetype)initWithFrame:(CGRect)frame;
 
 @end

@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LCBaseViewController.h"
 
-@interface LCDistrictViewController : UIViewController
+@interface LCDistrictViewController : LCBaseViewController
 
 @property (nonatomic, strong) NSArray *regions;
 
 @property (nonatomic, weak) UIPopoverController *popover;
+@property (nonatomic, copy) NSString *navName;
 @end

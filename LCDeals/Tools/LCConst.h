@@ -6,6 +6,12 @@
 #define LCLog(...)
 #endif
 
+
+//屏幕宽度
+#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+//屏幕高度
+#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define LCColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 #define LCGlobalBg LCColor(230, 230, 230)

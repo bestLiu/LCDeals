@@ -79,7 +79,6 @@
 		89EEEE5E1BFDAE8200137117 /* LCHomeTopItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89EEEE5C1BFDAE8200137117 /* LCHomeTopItem.xib */; };
 		89EEEE601BFDB3BF00137117 /* LCMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89EEEE5F1BFDB3BF00137117 /* LCMainViewController.xib */; };
 		89EEEE661BFDC0EC00137117 /* LCHomeDropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EEEE641BFDC0EC00137117 /* LCHomeDropView.m */; };
-		89EEEE671BFDC0EC00137117 /* LCHomeDropView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89EEEE651BFDC0EC00137117 /* LCHomeDropView.xib */; };
 		89EEEE6C1BFDC11900137117 /* LCHomeDropMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EEEE691BFDC11900137117 /* LCHomeDropMainTableViewCell.m */; };
 		89EEEE6D1BFDC11900137117 /* LCHomeDropSubTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EEEE6B1BFDC11900137117 /* LCHomeDropSubTableViewCell.m */; };
 		89EEEE751BFDC20400137117 /* LCCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EEEE6F1BFDC20400137117 /* LCCategoryViewController.m */; };
@@ -100,6 +99,11 @@
 		89EEEEB91BFDCE7600137117 /* cities.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89EEEEB51BFDCE7600137117 /* cities.plist */; };
 		89EEEEBA1BFDCE7600137117 /* cityGroups.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89EEEEB61BFDCE7600137117 /* cityGroups.plist */; };
 		89EEEEBB1BFDCE7600137117 /* sorts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89EEEEB71BFDCE7600137117 /* sorts.plist */; };
+		89FCD4BC1BFEBEC90000C051 /* LCCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89FCD4B81BFEBEC90000C051 /* LCCityViewController.m */; };
+		89FCD4BD1BFEBEC90000C051 /* LCCityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89FCD4B91BFEBEC90000C051 /* LCCityViewController.xib */; };
+		89FCD4BE1BFEBEC90000C051 /* LCSearchResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89FCD4BB1BFEBEC90000C051 /* LCSearchResultTableViewController.m */; };
+		89FCD4C11BFEBF880000C051 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 89FCD4C01BFEBF880000C051 /* UIBarButtonItem+Extension.m */; };
+		89FCD4C41BFEBFC90000C051 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 89FCD4C31BFEBFC90000C051 /* UIView+AutoLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -272,7 +276,6 @@
 		89EEEE5F1BFDB3BF00137117 /* LCMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCMainViewController.xib; sourceTree = "<group>"; };
 		89EEEE631BFDC0EC00137117 /* LCHomeDropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCHomeDropView.h; sourceTree = "<group>"; };
 		89EEEE641BFDC0EC00137117 /* LCHomeDropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCHomeDropView.m; sourceTree = "<group>"; };
-		89EEEE651BFDC0EC00137117 /* LCHomeDropView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCHomeDropView.xib; sourceTree = "<group>"; };
 		89EEEE681BFDC11900137117 /* LCHomeDropMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCHomeDropMainTableViewCell.h; sourceTree = "<group>"; };
 		89EEEE691BFDC11900137117 /* LCHomeDropMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCHomeDropMainTableViewCell.m; sourceTree = "<group>"; };
 		89EEEE6A1BFDC11900137117 /* LCHomeDropSubTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCHomeDropSubTableViewCell.h; sourceTree = "<group>"; };
@@ -308,6 +311,15 @@
 		89EEEEB51BFDCE7600137117 /* cities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cities.plist; sourceTree = "<group>"; };
 		89EEEEB61BFDCE7600137117 /* cityGroups.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cityGroups.plist; sourceTree = "<group>"; };
 		89EEEEB71BFDCE7600137117 /* sorts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sorts.plist; sourceTree = "<group>"; };
+		89FCD4B71BFEBEC90000C051 /* LCCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCCityViewController.h; sourceTree = "<group>"; };
+		89FCD4B81BFEBEC90000C051 /* LCCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCCityViewController.m; sourceTree = "<group>"; };
+		89FCD4B91BFEBEC90000C051 /* LCCityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCCityViewController.xib; sourceTree = "<group>"; };
+		89FCD4BA1BFEBEC90000C051 /* LCSearchResultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCSearchResultTableViewController.h; sourceTree = "<group>"; };
+		89FCD4BB1BFEBEC90000C051 /* LCSearchResultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCSearchResultTableViewController.m; sourceTree = "<group>"; };
+		89FCD4BF1BFEBF880000C051 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
+		89FCD4C01BFEBF880000C051 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		89FCD4C21BFEBFC90000C051 /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
+		89FCD4C31BFEBFC90000C051 /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -371,8 +383,8 @@
 				890E30521BFC6E4A0096CC89 /* 商家 */,
 				890E304E1BFC6E400096CC89 /* 我 */,
 				890E30461BFC6E2B0096CC89 /* 更多 */,
+				89FCD4B61BFEBEC90000C051 /* 城市 */,
 				890E2FF51BFC4BCA0096CC89 /* Assets.xcassets */,
-				890E2FFA1BFC4BCA0096CC89 /* Info.plist */,
 				890E2FE91BFC4BCA0096CC89 /* Supporting Files */,
 			);
 			path = LCDeals;
@@ -381,6 +393,7 @@
 		890E2FE91BFC4BCA0096CC89 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				890E2FFA1BFC4BCA0096CC89 /* Info.plist */,
 				89EEEEB31BFDCE7600137117 /* Plist */,
 				890E2FEA1BFC4BCA0096CC89 /* main.m */,
 				890E30371BFC5A870096CC89 /* PrefixHeader.pch */,
@@ -519,6 +532,10 @@
 		890E30661BFC70810096CC89 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				89FCD4C21BFEBFC90000C051 /* UIView+AutoLayout.h */,
+				89FCD4C31BFEBFC90000C051 /* UIView+AutoLayout.m */,
+				89FCD4BF1BFEBF880000C051 /* UIBarButtonItem+Extension.h */,
+				89FCD4C01BFEBF880000C051 /* UIBarButtonItem+Extension.m */,
 				89EEEEB01BFDC79D00137117 /* UIView+Extension.h */,
 				89EEEEB11BFDC79D00137117 /* UIView+Extension.m */,
 				890E30671BFC70810096CC89 /* CategoryWF.h */,
@@ -695,7 +712,6 @@
 				89EEEE5C1BFDAE8200137117 /* LCHomeTopItem.xib */,
 				89EEEE631BFDC0EC00137117 /* LCHomeDropView.h */,
 				89EEEE641BFDC0EC00137117 /* LCHomeDropView.m */,
-				89EEEE651BFDC0EC00137117 /* LCHomeDropView.xib */,
 				89EEEE681BFDC11900137117 /* LCHomeDropMainTableViewCell.h */,
 				89EEEE691BFDC11900137117 /* LCHomeDropMainTableViewCell.m */,
 				89EEEE6A1BFDC11900137117 /* LCHomeDropSubTableViewCell.h */,
@@ -713,6 +729,18 @@
 				89EEEEB71BFDCE7600137117 /* sorts.plist */,
 			);
 			path = Plist;
+			sourceTree = "<group>";
+		};
+		89FCD4B61BFEBEC90000C051 /* 城市 */ = {
+			isa = PBXGroup;
+			children = (
+				89FCD4B71BFEBEC90000C051 /* LCCityViewController.h */,
+				89FCD4B81BFEBEC90000C051 /* LCCityViewController.m */,
+				89FCD4B91BFEBEC90000C051 /* LCCityViewController.xib */,
+				89FCD4BA1BFEBEC90000C051 /* LCSearchResultTableViewController.h */,
+				89FCD4BB1BFEBEC90000C051 /* LCSearchResultTableViewController.m */,
+			);
+			path = "城市";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -821,10 +849,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89FCD4BD1BFEBEC90000C051 /* LCCityViewController.xib in Resources */,
 				89EEEE601BFDB3BF00137117 /* LCMainViewController.xib in Resources */,
 				89EEEE771BFDC20400137117 /* LCDistrictViewController.xib in Resources */,
 				89EEEEBB1BFDCE7600137117 /* sorts.plist in Resources */,
-				89EEEE671BFDC0EC00137117 /* LCHomeDropView.xib in Resources */,
 				890E2FF61BFC4BCA0096CC89 /* Assets.xcassets in Resources */,
 				89EEEE5E1BFDAE8200137117 /* LCHomeTopItem.xib in Resources */,
 				89EEEEBA1BFDCE7600137117 /* cityGroups.plist in Resources */,
@@ -871,6 +899,7 @@
 				89EEEE921BFDC2B400137117 /* LCRestrictions.m in Sources */,
 				890E31891BFC70B90096CC89 /* UIImageView+HighlightedWebCache.m in Sources */,
 				89EEEE8D1BFDC2B400137117 /* LCCategory.m in Sources */,
+				89FCD4C11BFEBF880000C051 /* UIBarButtonItem+Extension.m in Sources */,
 				890E30441BFC6E100096CC89 /* LCBaseNavgationController.m in Sources */,
 				890E30651BFC707C0096CC89 /* DPRequest.m in Sources */,
 				890E31571BFC70B10096CC89 /* NSObject+MJCoding.m in Sources */,
@@ -879,12 +908,15 @@
 				890E31101BFC70A40096CC89 /* MJRefreshConst.m in Sources */,
 				890E317E1BFC70B90096CC89 /* SDImageCache.m in Sources */,
 				890E30511BFC6E400096CC89 /* LCPersonalViewController.m in Sources */,
+				89FCD4BC1BFEBEC90000C051 /* LCCityViewController.m in Sources */,
 				890E30451BFC6E100096CC89 /* LCTabBarController.m in Sources */,
 				89EEEE591BFDA49D00137117 /* ViewController+MASAdditions.m in Sources */,
 				89EEEE781BFDC20400137117 /* LCSortViewController.m in Sources */,
+				89FCD4BE1BFEBEC90000C051 /* LCSearchResultTableViewController.m in Sources */,
 				89EEEE511BFDA49D00137117 /* MASConstraint.m in Sources */,
 				89EEEE501BFDA49D00137117 /* MASCompositeConstraint.m in Sources */,
 				890E30C01BFC70810096CC89 /* UITextField+WF.m in Sources */,
+				89FCD4C41BFEBFC90000C051 /* UIView+AutoLayout.m in Sources */,
 				89EEEE571BFDA49D00137117 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				890E31871BFC70B90096CC89 /* UIImage+MultiFormat.m in Sources */,
 				890E31591BFC70B10096CC89 /* NSObject+MJMember.m in Sources */,

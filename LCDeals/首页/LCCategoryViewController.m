@@ -20,14 +20,6 @@
 
 @implementation LCCategoryViewController
 
-- (void)loadView
-{
-    LCHomeDropView *dropView = [LCHomeDropView dropView];
-    dropView.dataSource = self;
-    dropView.delegate = self;
-    self.view = dropView;
-//    self.preferredContentSize = CGSizeMake(self.view.frame.size.width, 400);
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,6 +28,14 @@
 //    NSArray *dictArray = [NSArray arrayWithContentsOfFile:file];
 //    NSArray *categories = [LCCategory objectArrayWithKeyValuesArray:dictArray];
 //    NSArray *categories = [LCCategory objectArrayWithFile:file];
+    
+    
+    
+    self.navigationTitle = @"选择分类";
+    LCHomeDropView *dropView = [[LCHomeDropView alloc] initWithFrame:CGRectMake(0, 64, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) - 64)];
+    dropView.dataSource = self;
+    dropView.delegate = self;
+    [self.view addSubview:dropView];
     
 }
 
@@ -75,7 +75,7 @@
     if (category.subcategories.count == 0) {//没有子类别
         //发通知
         [LCNotifiCationCenter postNotificationName:LCCategoryDidChangeNotification object:self userInfo:@{LCCategorySelectKey:category}];
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self backButtonClicked:nil];
     }
 }
 - (void)homeDropView:(LCHomeDropView *)homeDropView didSelectRowInSubTable:(int)row inMainTable:(int)mainRow
@@ -86,7 +86,7 @@
     
     //发通知
     [LCNotifiCationCenter postNotificationName:LCCategoryDidChangeNotification object:self userInfo:@{LCCategorySelectKey:category,LCSubCategorySelectKey:category.subcategories[row]}];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self backButtonClicked:nil];
 
 }
 
