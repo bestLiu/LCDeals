@@ -18,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <searchBar contentMode="redraw" placeholder="请输入城市名或拼音" backgroundImage="bg_login_textfield" translatesAutoresizingMaskIntoConstraints="NO" id="gEo-gE-Hfr">
-                    <rect key="frame" x="10" y="10" width="580" height="40"/>
+                    <rect key="frame" x="10" y="74" width="580" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="Orq-3u-Dol"/>
                     </constraints>
@@ -28,7 +28,7 @@
                     </connections>
                 </searchBar>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bha-4X-7Uo">
-                    <rect key="frame" x="0.0" y="60" width="600" height="540"/>
+                    <rect key="frame" x="0.0" y="124" width="600" height="476"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="1iV-Yk-m7n"/>
@@ -44,7 +44,7 @@
                 <constraint firstItem="bha-4X-7Uo" firstAttribute="top" secondItem="gEo-gE-Hfr" secondAttribute="bottom" constant="10" id="dBK-GV-EnB"/>
                 <constraint firstItem="bha-4X-7Uo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uJA-va-nEJ"/>
                 <constraint firstItem="gEo-gE-Hfr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="y7q-f8-uzv"/>
-                <constraint firstItem="gEo-gE-Hfr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="yJN-5j-X6t"/>
+                <constraint firstItem="gEo-gE-Hfr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="74" id="yJN-5j-X6t"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

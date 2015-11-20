@@ -65,6 +65,8 @@
 		890E318B1BFC70B90096CC89 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 890E317B1BFC70B90096CC89 /* UIView+WebCacheOperation.m */; };
 		890E358C1BFC71AA0096CC89 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 890E358B1BFC71AA0096CC89 /* libsqlite3.tbd */; };
 		890E358E1BFC71F50096CC89 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 890E358D1BFC71F50096CC89 /* libz.tbd */; };
+		89EA8B521BFF133E003D21F5 /* LCMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA8B501BFF133E003D21F5 /* LCMainTableViewCell.m */; };
+		89EA8B531BFF133E003D21F5 /* LCMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89EA8B511BFF133E003D21F5 /* LCMainTableViewCell.xib */; };
 		89EEEE501BFDA49D00137117 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EEEE371BFDA49D00137117 /* MASCompositeConstraint.m */; };
 		89EEEE511BFDA49D00137117 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EEEE3A1BFDA49D00137117 /* MASConstraint.m */; };
 		89EEEE521BFDA49D00137117 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EEEE3C1BFDA49D00137117 /* MASConstraintMaker.m */; };
@@ -245,6 +247,9 @@
 		890E317B1BFC70B90096CC89 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		890E358B1BFC71AA0096CC89 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		890E358D1BFC71F50096CC89 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		89EA8B4F1BFF133E003D21F5 /* LCMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCMainTableViewCell.h; sourceTree = "<group>"; };
+		89EA8B501BFF133E003D21F5 /* LCMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCMainTableViewCell.m; sourceTree = "<group>"; };
+		89EA8B511BFF133E003D21F5 /* LCMainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCMainTableViewCell.xib; sourceTree = "<group>"; };
 		89EEEE361BFDA49D00137117 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		89EEEE371BFDA49D00137117 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
 		89EEEE381BFDA49D00137117 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
@@ -716,6 +721,9 @@
 				89EEEE691BFDC11900137117 /* LCHomeDropMainTableViewCell.m */,
 				89EEEE6A1BFDC11900137117 /* LCHomeDropSubTableViewCell.h */,
 				89EEEE6B1BFDC11900137117 /* LCHomeDropSubTableViewCell.m */,
+				89EA8B4F1BFF133E003D21F5 /* LCMainTableViewCell.h */,
+				89EA8B501BFF133E003D21F5 /* LCMainTableViewCell.m */,
+				89EA8B511BFF133E003D21F5 /* LCMainTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -853,6 +861,7 @@
 				89EEEE601BFDB3BF00137117 /* LCMainViewController.xib in Resources */,
 				89EEEE771BFDC20400137117 /* LCDistrictViewController.xib in Resources */,
 				89EEEEBB1BFDCE7600137117 /* sorts.plist in Resources */,
+				89EA8B531BFF133E003D21F5 /* LCMainTableViewCell.xib in Resources */,
 				890E2FF61BFC4BCA0096CC89 /* Assets.xcassets in Resources */,
 				89EEEE5E1BFDAE8200137117 /* LCHomeTopItem.xib in Resources */,
 				89EEEEBA1BFDCE7600137117 /* cityGroups.plist in Resources */,
@@ -898,6 +907,7 @@
 				890E314F1BFC70B10096CC89 /* MJArgument.m in Sources */,
 				89EEEE921BFDC2B400137117 /* LCRestrictions.m in Sources */,
 				890E31891BFC70B90096CC89 /* UIImageView+HighlightedWebCache.m in Sources */,
+				89EA8B521BFF133E003D21F5 /* LCMainTableViewCell.m in Sources */,
 				89EEEE8D1BFDC2B400137117 /* LCCategory.m in Sources */,
 				89FCD4C11BFEBF880000C051 /* UIBarButtonItem+Extension.m in Sources */,
 				890E30441BFC6E100096CC89 /* LCBaseNavgationController.m in Sources */,

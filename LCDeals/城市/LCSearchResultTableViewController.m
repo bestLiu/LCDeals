@@ -43,7 +43,7 @@
     
     //2 、利用谓词:能根据一定的条件从一个数组中过滤出想要的数据
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name contains %@ or pinYin contains %@ or pinYinHead contains %@",searchText,searchText,searchText];
-    self.dataArray = [[LCTool cities] filteredArrayUsingPredicate:predicate];
+    self.dataArray = [[LCTool cities] filteredArrayUsingPredicate:predicate].copy;
     
     [self.tableView reloadData];
 }
@@ -80,7 +80,7 @@
     LCCity *city = self.dataArray[indexPath.row];
     [LCNotifiCationCenter postNotificationName:LCCityDidSelectNotification object:self userInfo:@{LCCitySelectCityKey:city.name}];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end
