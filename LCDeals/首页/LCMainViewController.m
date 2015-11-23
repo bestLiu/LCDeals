@@ -210,6 +210,10 @@
 {
     self.selectedCityName = noti.userInfo[LCCitySelectCityKey];
     
+    //保存一下，下个界面用
+    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    app.selectedCityName = self.selectedCityName;
+    
     // 1更换区域item的文字
     [_districtTopItem setTitle:[NSString stringWithFormat:@"%@",_selectedCityName]];
     [_districtTopItem setSubtitle:nil];

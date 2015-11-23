@@ -65,6 +65,8 @@
 		890E318B1BFC70B90096CC89 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 890E317B1BFC70B90096CC89 /* UIView+WebCacheOperation.m */; };
 		890E358C1BFC71AA0096CC89 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 890E358B1BFC71AA0096CC89 /* libsqlite3.tbd */; };
 		890E358E1BFC71F50096CC89 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 890E358D1BFC71F50096CC89 /* libz.tbd */; };
+		89ABE29C1C02BC73002AE569 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 89ABE2971C02BC73002AE569 /* SVProgressHUD.bundle */; };
+		89ABE29D1C02BC73002AE569 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 89ABE2991C02BC73002AE569 /* SVProgressHUD.m */; };
 		89EA8B521BFF133E003D21F5 /* LCMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA8B501BFF133E003D21F5 /* LCMainTableViewCell.m */; };
 		89EA8B531BFF133E003D21F5 /* LCMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89EA8B511BFF133E003D21F5 /* LCMainTableViewCell.xib */; };
 		89EEEE501BFDA49D00137117 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EEEE371BFDA49D00137117 /* MASCompositeConstraint.m */; };
@@ -247,6 +249,9 @@
 		890E317B1BFC70B90096CC89 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		890E358B1BFC71AA0096CC89 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		890E358D1BFC71F50096CC89 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		89ABE2971C02BC73002AE569 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		89ABE2981C02BC73002AE569 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		89ABE2991C02BC73002AE569 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		89EA8B4F1BFF133E003D21F5 /* LCMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCMainTableViewCell.h; sourceTree = "<group>"; };
 		89EA8B501BFF133E003D21F5 /* LCMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCMainTableViewCell.m; sourceTree = "<group>"; };
 		89EA8B511BFF133E003D21F5 /* LCMainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCMainTableViewCell.xib; sourceTree = "<group>"; };
@@ -518,6 +523,7 @@
 				890E30FD1BFC70A40096CC89 /* MJRefresh */,
 				890E30661BFC70810096CC89 /* Category */,
 				890E305E1BFC707C0096CC89 /* dianpingapi */,
+				89ABE2931C02BC73002AE569 /* SVProgressHUD */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -658,6 +664,24 @@
 				890E358B1BFC71AA0096CC89 /* libsqlite3.tbd */,
 			);
 			name = Framework;
+			sourceTree = "<group>";
+		};
+		89ABE2931C02BC73002AE569 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				89ABE2961C02BC73002AE569 /* SVProgressHUD */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		89ABE2961C02BC73002AE569 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				89ABE2971C02BC73002AE569 /* SVProgressHUD.bundle */,
+				89ABE2981C02BC73002AE569 /* SVProgressHUD.h */,
+				89ABE2991C02BC73002AE569 /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 		89EEEE341BFDA49D00137117 /* Masonry */ = {
@@ -864,6 +888,7 @@
 				89EA8B531BFF133E003D21F5 /* LCMainTableViewCell.xib in Resources */,
 				890E2FF61BFC4BCA0096CC89 /* Assets.xcassets in Resources */,
 				89EEEE5E1BFDAE8200137117 /* LCHomeTopItem.xib in Resources */,
+				89ABE29C1C02BC73002AE569 /* SVProgressHUD.bundle in Resources */,
 				89EEEEBA1BFDCE7600137117 /* cityGroups.plist in Resources */,
 				890E310E1BFC70A40096CC89 /* MJRefresh.bundle in Resources */,
 				89EEEEB81BFDCE7600137117 /* categories.plist in Resources */,
@@ -903,6 +928,7 @@
 				890E31851BFC70B90096CC89 /* UIButton+WebCache.m in Sources */,
 				890E31801BFC70B90096CC89 /* SDWebImageDecoder.m in Sources */,
 				890E30491BFC6E2B0096CC89 /* LCMoreViewController.m in Sources */,
+				89ABE29D1C02BC73002AE569 /* SVProgressHUD.m in Sources */,
 				890E310F1BFC70A40096CC89 /* MJRefreshBaseView.m in Sources */,
 				890E314F1BFC70B10096CC89 /* MJArgument.m in Sources */,
 				89EEEE921BFDC2B400137117 /* LCRestrictions.m in Sources */,

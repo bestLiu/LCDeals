@@ -6,6 +6,7 @@
 #define LCLog(...)
 #endif
 
+#define kNetworkErrorMsg              @"网络错误，请稍后再试"
 
 //屏幕宽度
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
