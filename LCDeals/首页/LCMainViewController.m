@@ -51,12 +51,23 @@
     return _deals;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+//    LCUserInfo *userInfo = [LCUserInfo sharedLCUserInfo];
+//    if (userInfo.selectedCityName.length > 0 && _districtTopItem) {
+//        [_districtTopItem setTitle:userInfo.selectedCityName];
+//        self.selectedCityName = userInfo.selectedCityName;
+//        [self startRequst];
+//    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.page = 1;
     self.backButton.hidden = YES;
     self.navigationTitle = @"首页";
+    self.navigationItem.title = @"首页";
     
     [self setupSubViews];
     [self setupNotification];
@@ -211,8 +222,8 @@
     self.selectedCityName = noti.userInfo[LCCitySelectCityKey];
     
     //保存一下，下个界面用
-    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    app.selectedCityName = self.selectedCityName;
+    LCUserInfo *userInfo = [LCUserInfo sharedLCUserInfo];
+    userInfo.selectedCityName = self.selectedCityName;
     
     // 1更换区域item的文字
     [_districtTopItem setTitle:[NSString stringWithFormat:@"%@",_selectedCityName]];

@@ -7,6 +7,13 @@
 //
 
 #import "LCStroeViewController.h"
+#import "DPAPI.h"
+
+@interface LCStroeViewController ()<DPRequestDelegate>
+
+
+
+@end
 
 @implementation LCStroeViewController
 
@@ -15,6 +22,32 @@
     [super viewDidLoad];
     self.backButton.hidden = YES;
     self.navigationTitle = @"商家";
+    [self setupSubViews];
 }
+
+- (void)setupSubViews
+{
+    NSString *urlString = @"v1/business/find_businesses";
+    DPAPI *api = [[DPAPI alloc] init];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+//    if (cityName.length > 0) {
+        params[@"city"] = @"成都";
+//    }else{
+        [SVProgressHUD showErrorWithStatus:@"请先选择城市"];
+//    }
+    
+    [api requestWithURL:urlString params:params delegate:self];
+}
+
+- (void)request:(DPRequest *)request didFailWithError:(NSError *)error
+{
+    
+}
+- (void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result
+{
+    NSLog(@"%@",result);
+}
+
 
 @end

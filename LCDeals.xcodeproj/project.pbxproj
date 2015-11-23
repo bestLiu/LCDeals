@@ -17,7 +17,6 @@
 		890E30451BFC6E100096CC89 /* LCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 890E30431BFC6E100096CC89 /* LCTabBarController.m */; };
 		890E30491BFC6E2B0096CC89 /* LCMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 890E30481BFC6E2B0096CC89 /* LCMoreViewController.m */; };
 		890E304D1BFC6E360096CC89 /* LCMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 890E304C1BFC6E360096CC89 /* LCMainViewController.m */; };
-		890E30511BFC6E400096CC89 /* LCPersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 890E30501BFC6E400096CC89 /* LCPersonalViewController.m */; };
 		890E30551BFC6E4A0096CC89 /* LCStroeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 890E30541BFC6E4A0096CC89 /* LCStroeViewController.m */; };
 		890E30591BFC6EB10096CC89 /* LCConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 890E30581BFC6EB10096CC89 /* LCConst.m */; };
 		890E305C1BFC6F210096CC89 /* LCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 890E305B1BFC6F210096CC89 /* LCBaseViewController.m */; };
@@ -67,6 +66,10 @@
 		890E358E1BFC71F50096CC89 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 890E358D1BFC71F50096CC89 /* libz.tbd */; };
 		89ABE29C1C02BC73002AE569 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 89ABE2971C02BC73002AE569 /* SVProgressHUD.bundle */; };
 		89ABE29D1C02BC73002AE569 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 89ABE2991C02BC73002AE569 /* SVProgressHUD.m */; };
+		89ABE2A01C02F898002AE569 /* LCUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 89ABE29F1C02F898002AE569 /* LCUserInfo.m */; };
+		89ABE2A71C031A03002AE569 /* LCPersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89ABE2A41C031A03002AE569 /* LCPersonalViewController.m */; };
+		89ABE2AB1C031A40002AE569 /* LCPersonalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89ABE2A91C031A40002AE569 /* LCPersonalTableViewCell.m */; };
+		89ABE2AC1C031A40002AE569 /* LCPersonalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89ABE2AA1C031A40002AE569 /* LCPersonalTableViewCell.xib */; };
 		89EA8B521BFF133E003D21F5 /* LCMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA8B501BFF133E003D21F5 /* LCMainTableViewCell.m */; };
 		89EA8B531BFF133E003D21F5 /* LCMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89EA8B511BFF133E003D21F5 /* LCMainTableViewCell.xib */; };
 		89EEEE501BFDA49D00137117 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EEEE371BFDA49D00137117 /* MASCompositeConstraint.m */; };
@@ -151,8 +154,6 @@
 		890E30481BFC6E2B0096CC89 /* LCMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCMoreViewController.m; sourceTree = "<group>"; };
 		890E304B1BFC6E360096CC89 /* LCMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCMainViewController.h; sourceTree = "<group>"; };
 		890E304C1BFC6E360096CC89 /* LCMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCMainViewController.m; sourceTree = "<group>"; };
-		890E304F1BFC6E400096CC89 /* LCPersonalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCPersonalViewController.h; sourceTree = "<group>"; };
-		890E30501BFC6E400096CC89 /* LCPersonalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCPersonalViewController.m; sourceTree = "<group>"; };
 		890E30531BFC6E4A0096CC89 /* LCStroeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCStroeViewController.h; sourceTree = "<group>"; };
 		890E30541BFC6E4A0096CC89 /* LCStroeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCStroeViewController.m; sourceTree = "<group>"; };
 		890E30571BFC6EB10096CC89 /* LCConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCConst.h; sourceTree = "<group>"; };
@@ -252,6 +253,14 @@
 		89ABE2971C02BC73002AE569 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		89ABE2981C02BC73002AE569 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		89ABE2991C02BC73002AE569 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		89ABE29E1C02F898002AE569 /* LCUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUserInfo.h; sourceTree = "<group>"; };
+		89ABE29F1C02F898002AE569 /* LCUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCUserInfo.m; sourceTree = "<group>"; };
+		89ABE2A11C02F8AB002AE569 /* Singleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		89ABE2A31C031A03002AE569 /* LCPersonalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCPersonalViewController.h; sourceTree = "<group>"; };
+		89ABE2A41C031A03002AE569 /* LCPersonalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCPersonalViewController.m; sourceTree = "<group>"; };
+		89ABE2A81C031A40002AE569 /* LCPersonalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCPersonalTableViewCell.h; sourceTree = "<group>"; };
+		89ABE2A91C031A40002AE569 /* LCPersonalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCPersonalTableViewCell.m; sourceTree = "<group>"; };
+		89ABE2AA1C031A40002AE569 /* LCPersonalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCPersonalTableViewCell.xib; sourceTree = "<group>"; };
 		89EA8B4F1BFF133E003D21F5 /* LCMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCMainTableViewCell.h; sourceTree = "<group>"; };
 		89EA8B501BFF133E003D21F5 /* LCMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCMainTableViewCell.m; sourceTree = "<group>"; };
 		89EA8B511BFF133E003D21F5 /* LCMainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCMainTableViewCell.xib; sourceTree = "<group>"; };
@@ -385,6 +394,9 @@
 			children = (
 				890E2FEC1BFC4BCA0096CC89 /* AppDelegate.h */,
 				890E2FED1BFC4BCA0096CC89 /* AppDelegate.m */,
+				89ABE29E1C02F898002AE569 /* LCUserInfo.h */,
+				89ABE29F1C02F898002AE569 /* LCUserInfo.m */,
+				89ABE2A11C02F8AB002AE569 /* Singleton.h */,
 				890E30561BFC6EB10096CC89 /* Tools */,
 				890E305D1BFC70510096CC89 /* Libs */,
 				890E303F1BFC6E100096CC89 /* BaseViewController */,
@@ -472,8 +484,9 @@
 		890E304E1BFC6E400096CC89 /* 我 */ = {
 			isa = PBXGroup;
 			children = (
-				890E304F1BFC6E400096CC89 /* LCPersonalViewController.h */,
-				890E30501BFC6E400096CC89 /* LCPersonalViewController.m */,
+				89ABE2A51C031A03002AE569 /* Models */,
+				89ABE2A21C031A03002AE569 /* Controllers */,
+				89ABE2A61C031A03002AE569 /* Views */,
 			);
 			path = "我";
 			sourceTree = "<group>";
@@ -682,6 +695,32 @@
 				89ABE2991C02BC73002AE569 /* SVProgressHUD.m */,
 			);
 			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		89ABE2A21C031A03002AE569 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				89ABE2A31C031A03002AE569 /* LCPersonalViewController.h */,
+				89ABE2A41C031A03002AE569 /* LCPersonalViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		89ABE2A51C031A03002AE569 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		89ABE2A61C031A03002AE569 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				89ABE2A81C031A40002AE569 /* LCPersonalTableViewCell.h */,
+				89ABE2A91C031A40002AE569 /* LCPersonalTableViewCell.m */,
+				89ABE2AA1C031A40002AE569 /* LCPersonalTableViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		89EEEE341BFDA49D00137117 /* Masonry */ = {
@@ -893,6 +932,7 @@
 				890E310E1BFC70A40096CC89 /* MJRefresh.bundle in Resources */,
 				89EEEEB81BFDCE7600137117 /* categories.plist in Resources */,
 				89EEEEB91BFDCE7600137117 /* cities.plist in Resources */,
+				89ABE2AC1C031A40002AE569 /* LCPersonalTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -936,6 +976,7 @@
 				89EA8B521BFF133E003D21F5 /* LCMainTableViewCell.m in Sources */,
 				89EEEE8D1BFDC2B400137117 /* LCCategory.m in Sources */,
 				89FCD4C11BFEBF880000C051 /* UIBarButtonItem+Extension.m in Sources */,
+				89ABE2AB1C031A40002AE569 /* LCPersonalTableViewCell.m in Sources */,
 				890E30441BFC6E100096CC89 /* LCBaseNavgationController.m in Sources */,
 				890E30651BFC707C0096CC89 /* DPRequest.m in Sources */,
 				890E31571BFC70B10096CC89 /* NSObject+MJCoding.m in Sources */,
@@ -943,7 +984,6 @@
 				890E318B1BFC70B90096CC89 /* UIView+WebCacheOperation.m in Sources */,
 				890E31101BFC70A40096CC89 /* MJRefreshConst.m in Sources */,
 				890E317E1BFC70B90096CC89 /* SDImageCache.m in Sources */,
-				890E30511BFC6E400096CC89 /* LCPersonalViewController.m in Sources */,
 				89FCD4BC1BFEBEC90000C051 /* LCCityViewController.m in Sources */,
 				890E30451BFC6E100096CC89 /* LCTabBarController.m in Sources */,
 				89EEEE591BFDA49D00137117 /* ViewController+MASAdditions.m in Sources */,
@@ -959,6 +999,7 @@
 				890E305C1BFC6F210096CC89 /* LCBaseViewController.m in Sources */,
 				89EEEE6D1BFDC11900137117 /* LCHomeDropSubTableViewCell.m in Sources */,
 				890E31131BFC70A40096CC89 /* UIScrollView+MJExtension.m in Sources */,
+				89ABE2A71C031A03002AE569 /* LCPersonalViewController.m in Sources */,
 				890E31531BFC70B10096CC89 /* MJMember.m in Sources */,
 				890E31151BFC70A40096CC89 /* UIView+MJExtension.m in Sources */,
 				89EEEE551BFDA49D00137117 /* MASViewConstraint.m in Sources */,
@@ -998,6 +1039,7 @@
 				890E30551BFC6E4A0096CC89 /* LCStroeViewController.m in Sources */,
 				89EEEE531BFDA49D00137117 /* MASLayoutConstraint.m in Sources */,
 				890E31541BFC70B10096CC89 /* MJMethod.m in Sources */,
+				89ABE2A01C02F898002AE569 /* LCUserInfo.m in Sources */,
 				89EEEEB21BFDC79D00137117 /* UIView+Extension.m in Sources */,
 				89EEEE901BFDC2B400137117 /* LCDeal.m in Sources */,
 				890E30BD1BFC70810096CC89 /* UIButton+WF.m in Sources */,

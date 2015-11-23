@@ -40,7 +40,6 @@
     }
     _initialized = YES;
     self.view.backgroundColor = UIColorFromRGB(0xffffff);
-    self.wantsFullScreenLayout = YES;
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     if ([[UIDevice currentDevice].systemVersion floatValue] >= 7.0) {

@@ -12,6 +12,7 @@
 #import "MJRefresh.h"
 #import "DPAPI.h"
 #import "MJExtension.h"
+#import "LCCityViewController.h"
 
 @interface LCDiscoverViewController ()<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, DPRequestDelegate>
 
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) UISearchBar *searchBar;
 @property (weak, nonatomic) UITableView *tableView;
 @property (weak, nonatomic) UIView *noRecordView;
+@property (weak, nonatomic) UIButton *cityButton;
 @property (nonatomic, weak) DPRequest *lastRequest;
 
 
@@ -36,6 +38,16 @@ static NSString *const reuseIdentifier = @"mainCell";
     return _deals;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if ([LCUserInfo sharedLCUserInfo].selectedCityName.length > 0 && _cityButton) {
+        NSString *buttonText = [LCUserInfo sharedLCUserInfo].selectedCityName.length > 0 ? [LCUserInfo sharedLCUserInfo].selectedCityName : @"请选择城市";
+        [_cityButton setTitle:buttonText forState:UIControlStateNormal];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -47,6 +59,18 @@ static NSString *const reuseIdentifier = @"mainCell";
 
 - (void)setupSubViews
 {
+    UIButton *cityButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    cityButton.frame = CGRectMake(15, 0, 80, CGRectGetHeight(self.customNavigationBar.frame));
+    [cityButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    [cityButton.titleLabel setFont:[UIFont systemFontOfSize:14]];
+    LCUserInfo *userInfo = [LCUserInfo sharedLCUserInfo];
+    NSString *buttonText = userInfo.selectedCityName.length > 0 ? userInfo.selectedCityName : @"请选择城市";
+    cityButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [cityButton setTitle:buttonText forState:UIControlStateNormal];
+    [cityButton addTarget:self action:@selector(cityButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.customNavigationBar addSubview:cityButton];
+    _cityButton = cityButton;
+    
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, 40)];
     searchBar.placeholder = @"请输入关键词";
     searchBar.delegate = self;
@@ -70,7 +94,7 @@ static NSString *const reuseIdentifier = @"mainCell";
     [self.view addSubview:noRecordView];
     _noRecordView = noRecordView;
     
-    UIView *roundView = [[UIView alloc] initWithFrame:CGRectMake(81, 100, 161, 161)];
+    UIView *roundView = [[UIView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 160) * 0.5, SCREEN_HEIGHT*0.5 - CGRectGetMaxY(_searchBar.frame) - 80, 160, 160)];
     roundView.backgroundColor = [UIColor whiteColor];
     roundView.layer.cornerRadius = roundView.frame.size.width/2;
     roundView.layer.masksToBounds = YES;
@@ -80,7 +104,7 @@ static NSString *const reuseIdentifier = @"mainCell";
     noRecordLabel.bounds = CGRectMake(0, 0, 150, 30);
     noRecordLabel.center = roundView.center;
     noRecordLabel.textAlignment = NSTextAlignmentCenter;
-    noRecordLabel.text = @"暂无信息";
+    noRecordLabel.text = @"暂无团购信息";
     noRecordLabel.font = [UIFont boldSystemFontOfSize:14.0];
     noRecordLabel.textColor = [UIColor grayColor];
     [_noRecordView addSubview:noRecordLabel];
@@ -116,8 +140,7 @@ static NSString *const reuseIdentifier = @"mainCell";
 
 - (void)tableHeaderRefresh
 {
-    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    NSString *cityName = app.selectedCityName;
+    NSString *cityName = [LCUserInfo sharedLCUserInfo].selectedCityName;
     
     // 发请求给服务器
     NSString *urlString = @"v1/deal/find_deals";
@@ -142,6 +165,7 @@ static NSString *const reuseIdentifier = @"mainCell";
 {
     if (request != self.lastRequest) return; //如果不是最后一个请求 就结束
     
+    //MJExtension 的使用
     NSArray *deals = [LCDeal objectArrayWithKeyValuesArray:result[@"deals"]];
     [self.deals addObjectsFromArray:deals];
     [self.tableView reloadData];
@@ -155,5 +179,12 @@ static NSString *const reuseIdentifier = @"mainCell";
     // 结束上/下拉刷新
     [self.tableView headerEndRefreshing];
 }
+
+- (void)cityButtonAction:(UIButton *)button
+{
+    LCCityViewController *cityVc = [[LCCityViewController alloc] init];
+    [self pushViewController:cityVc animated:YES];
+}
+
 
 @end

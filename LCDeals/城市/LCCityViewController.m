@@ -15,6 +15,7 @@
 #import "LCSearchResultTableViewController.h"
 
 
+
 @interface LCCityViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -106,7 +107,18 @@
     LCCityGroup *group = self.cityGroups[indexPath.section];
     NSString *cityName = group.cities[indexPath.row];
     
-     [LCNotifiCationCenter postNotificationName:LCCityDidSelectNotification object:self userInfo:@{LCCitySelectCityKey:cityName}];
+    
+    if (self.navigationController.viewControllers.count > 1) {
+        for (UIViewController *vc in self.navigationController.viewControllers) {
+            if ([vc isKindOfClass:NSClassFromString(@"LCDiscoverViewController")]) {
+                LCUserInfo *userInfo = [LCUserInfo sharedLCUserInfo];
+                userInfo.selectedCityName = cityName;
+                [self.navigationController popToViewController:vc animated:YES];
+                return;
+            }
+        }
+    }
+    [LCNotifiCationCenter postNotificationName:LCCityDidSelectNotification object:self userInfo:@{LCCitySelectCityKey:cityName}];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
