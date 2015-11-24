@@ -34,7 +34,7 @@
 //    if (cityName.length > 0) {
         params[@"city"] = @"成都";
 //    }else{
-        [SVProgressHUD showErrorWithStatus:@"请先选择城市"];
+//        [SVProgressHUD showErrorWithStatus:@"请先选择城市"];
 //    }
     
     [api requestWithURL:urlString params:params delegate:self];

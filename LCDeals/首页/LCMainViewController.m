@@ -34,7 +34,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIView *noRecordView;
+@property (weak, nonatomic) UIView *noRecordView;
 
 @property (nonatomic, weak) DPRequest *lastRequest;
 
@@ -53,12 +53,12 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-//    LCUserInfo *userInfo = [LCUserInfo sharedLCUserInfo];
-//    if (userInfo.selectedCityName.length > 0 && _districtTopItem) {
-//        [_districtTopItem setTitle:userInfo.selectedCityName];
-//        self.selectedCityName = userInfo.selectedCityName;
-//        [self startRequst];
-//    }
+    LCUserInfo *userInfo = [LCUserInfo sharedLCUserInfo];
+    if (userInfo.selectedCityName.length > 0 && _districtTopItem) {
+        [_districtTopItem setTitle:userInfo.selectedCityName];
+        self.selectedCityName = userInfo.selectedCityName;
+        [self startRequst];
+    }
 }
 
 - (void)viewDidLoad
@@ -67,8 +67,8 @@
     self.page = 1;
     self.backButton.hidden = YES;
     self.navigationTitle = @"首页";
-    self.navigationItem.title = @"首页";
-    
+//    self.navigationItem.title = @"首页";
+        
     [self setupSubViews];
     [self setupNotification];
 }
@@ -78,7 +78,7 @@
     //1、类别
     CGFloat itemWith = CGRectGetWidth(self.view.frame)/3.0;
     _categoryTopItem = [LCHomeTopItem item];
-    _categoryTopItem.frame = CGRectMake(0, 0, itemWith, 35);
+    _categoryTopItem.frame = CGRectMake(0, 0, itemWith, 34);
     [_categoryTopItem setTitle:@"全部分类"];
     [_categoryTopItem setIcon:@"icon_category_-1" highlightIcon:@"icon_category_highlighted_-1"];
     [_categoryTopItem addTarget:self action:@selector(categoryClick)];
@@ -86,14 +86,14 @@
     
     //2、地区
     _districtTopItem = [LCHomeTopItem item];
-    _districtTopItem.frame = CGRectMake(itemWith, 0, itemWith, 35);
+    _districtTopItem.frame = CGRectMake(itemWith, 0, itemWith, 34);
     [_districtTopItem setTitle:@"城市"];
     [_districtTopItem addTarget:self action:@selector(districtClick)];
     [_headView addSubview:_districtTopItem];
     
     //3、排序
     _sortTopItem = [LCHomeTopItem item];
-    _sortTopItem.frame = CGRectMake(itemWith * 2, 0, itemWith, 35);
+    _sortTopItem.frame = CGRectMake(itemWith * 2, 0, itemWith, 34);
     [_sortTopItem setTitle:@"排序"];
     [_sortTopItem setSubtitle:@"默认排序"];
     [_sortTopItem setIcon:@"icon_sort" highlightIcon:@"icon_sort_highlighted"];
@@ -105,6 +105,28 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.5)];
     [self.tableView addFooterWithTarget:self action:@selector(loadMoreDeals)];
     [self.tableView addHeaderWithTarget:self action:@selector(loadNewDeals)];
+    
+    UIView *noRecordView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_headView.frame), SCREEN_WIDTH, CGRectGetHeight(self.tableView.frame))];
+    noRecordView.backgroundColor = [UIColor colorWithRed:231/255.0 green:231/255.0 blue:231/255.0 alpha:1];
+    noRecordView.hidden = YES;
+    [self.view addSubview:noRecordView];
+    _noRecordView = noRecordView;
+    
+    UIView *roundView = [[UIView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 160) * 0.5, SCREEN_HEIGHT*0.5 - CGRectGetMaxY(_headView.frame) - 80, 160, 160)];
+    roundView.backgroundColor = [UIColor whiteColor];
+    roundView.layer.cornerRadius = roundView.frame.size.width/2;
+    roundView.layer.masksToBounds = YES;
+    [_noRecordView addSubview:roundView];
+    
+    UILabel *noRecordLabel = [[UILabel alloc] init];
+    noRecordLabel.bounds = CGRectMake(0, 0, 150, 30);
+    noRecordLabel.center = roundView.center;
+    noRecordLabel.textAlignment = NSTextAlignmentCenter;
+    noRecordLabel.text = @"暂无团购信息";
+    noRecordLabel.font = [UIFont boldSystemFontOfSize:14.0];
+    noRecordLabel.textColor = [UIColor grayColor];
+    [_noRecordView addSubview:noRecordLabel];
+
 }
 
 - (void)setupNotification
@@ -122,6 +144,7 @@
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    _noRecordView.hidden = self.deals.count != 0;
     return self.deals.count;
 }
 

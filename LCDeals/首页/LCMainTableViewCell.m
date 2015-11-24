@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *listPriceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *purchaseCountLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *dealNewView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *withCons;
 
 @end
 
@@ -25,7 +26,6 @@
 
 
 - (void)awakeFromNib {
-  
 }
 
 
@@ -49,6 +49,7 @@
             self.currentPriceLabel.text = [self.currentPriceLabel.text substringToIndex:dotLoc + 3];
         }
     }
+
     
     // 原价
     self.listPriceLabel.text = [NSString stringWithFormat:@"¥ %@", deal.list_price];
@@ -76,10 +77,6 @@
     [[UIImage imageNamed:@"bg_dealcell"] drawInRect:rect];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
-}
 
 @end
