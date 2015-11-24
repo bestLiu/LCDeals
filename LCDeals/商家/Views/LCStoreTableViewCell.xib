@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,48 +11,56 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j1a-L4-9hK" userLabel="head">
-                        <rect key="frame" x="10" y="5" width="90" height="90"/>
+                        <rect key="frame" x="10" y="10" width="80" height="80"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="90" id="L6Y-Ua-lkX"/>
-                            <constraint firstAttribute="width" constant="90" id="rSl-zU-FOn"/>
+                            <constraint firstAttribute="height" constant="80" id="L6Y-Ua-lkX"/>
+                            <constraint firstAttribute="width" constant="80" id="rSl-zU-FOn"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COR-9e-AWr">
-                        <rect key="frame" x="112" y="5" width="43" height="21"/>
+                        <rect key="frame" x="102" y="10" width="42.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="en5-qd-hpL">
-                        <rect key="frame" x="112" y="27" width="127" height="33"/>
+                        <rect key="frame" x="102" y="31" width="127" height="25"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="127" id="ovO-Ez-WEG"/>
-                            <constraint firstAttribute="height" constant="33" id="q1h-wp-MR1"/>
+                            <constraint firstAttribute="height" constant="25" id="q1h-wp-MR1"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="whR-hr-FN5">
-                        <rect key="frame" x="112" y="70" width="68" height="21"/>
+                        <rect key="frame" x="102" y="66" width="68" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人均消费" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owc-9Z-6db">
-                        <rect key="frame" x="259" y="43" width="56" height="17"/>
+                        <rect key="frame" x="259" y="39" width="56" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="距离" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8e-0y-BOg">
+                        <rect key="frame" x="291" y="72" width="24" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="Q8e-0y-BOg" firstAttribute="trailing" secondItem="owc-9Z-6db" secondAttribute="trailing" id="0gx-7g-iTE"/>
+                    <constraint firstItem="Q8e-0y-BOg" firstAttribute="bottom" secondItem="whR-hr-FN5" secondAttribute="bottom" id="53J-fN-07i"/>
                     <constraint firstItem="owc-9Z-6db" firstAttribute="bottom" secondItem="en5-qd-hpL" secondAttribute="bottom" id="BEu-ea-aYB"/>
                     <constraint firstItem="COR-9e-AWr" firstAttribute="top" secondItem="j1a-L4-9hK" secondAttribute="top" id="GJ9-Dy-DKS"/>
                     <constraint firstItem="en5-qd-hpL" firstAttribute="leading" secondItem="j1a-L4-9hK" secondAttribute="trailing" constant="12" id="HGD-ki-xk1"/>
                     <constraint firstItem="COR-9e-AWr" firstAttribute="leading" secondItem="j1a-L4-9hK" secondAttribute="trailing" constant="12" id="YbT-nY-Lf5"/>
-                    <constraint firstItem="j1a-L4-9hK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="ffy-yM-xCp"/>
+                    <constraint firstItem="j1a-L4-9hK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="ffy-yM-xCp"/>
                     <constraint firstAttribute="trailing" secondItem="owc-9Z-6db" secondAttribute="trailing" constant="5" id="gNo-Rb-99o"/>
                     <constraint firstItem="j1a-L4-9hK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="lFb-tY-9UU"/>
                     <constraint firstItem="en5-qd-hpL" firstAttribute="top" secondItem="COR-9e-AWr" secondAttribute="bottom" constant="1" id="n3Z-AB-9Pb"/>
@@ -60,6 +68,14 @@
                     <constraint firstItem="whR-hr-FN5" firstAttribute="top" secondItem="en5-qd-hpL" secondAttribute="bottom" constant="10" id="pQo-oo-7iw"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="avgLabel" destination="owc-9Z-6db" id="PJk-lQ-ygz"/>
+                <outlet property="categoryLabel" destination="whR-hr-FN5" id="i2A-4Y-LaK"/>
+                <outlet property="distanceLabel" destination="Q8e-0y-BOg" id="9RX-Ox-Gl1"/>
+                <outlet property="headImageView" destination="j1a-L4-9hK" id="ifE-em-cP3"/>
+                <outlet property="nameLabel" destination="COR-9e-AWr" id="6bq-ye-gQy"/>
+                <outlet property="starImageView" destination="en5-qd-hpL" id="NGR-hF-ySi"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

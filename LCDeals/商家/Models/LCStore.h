@@ -21,7 +21,7 @@
 @property (copy, nonatomic) NSString *rating_s_img_url;
 
 //分类
-@property (copy, nonatomic) NSDictionary *categories;
+@property (copy, nonatomic) NSArray *categories;
 
 //距离
 @property (copy, nonatomic) NSString *distance;

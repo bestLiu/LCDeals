@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LCStore.h"
 
 @interface LCStoreTableViewCell : UITableViewCell
+
+@property (strong, nonatomic) LCStore *store;
 
 @end

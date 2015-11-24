@@ -10,6 +10,7 @@
 #import "DPAPI.h"
 #import "LCStore.h"
 #import "LCStoreTableViewCell.h"
+#import "MJExtension.h"
 
 @interface LCStroeViewController ()<DPRequestDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -36,6 +37,7 @@ static NSString *const reuseIdentifier = @"stroeCell";
     self.backButton.hidden = YES;
     self.navigationTitle = @"商家";
     [self setupSubViews];
+    [self startRequest];
 }
 
 - (void)setupSubViews
@@ -48,19 +50,7 @@ static NSString *const reuseIdentifier = @"stroeCell";
     [tableView registerNib:[UINib nibWithNibName:@"LCStoreTableViewCell" bundle:nil] forCellReuseIdentifier:reuseIdentifier];
     [self.view addSubview:tableView];
     _tableView = tableView;
-    
-    
-    NSString *urlString = @"v1/business/find_businesses";
-    DPAPI *api = [[DPAPI alloc] init];
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    
-//    if (cityName.length > 0) {
-        params[@"city"] = @"成都";
-//    }else{
-//        [SVProgressHUD showErrorWithStatus:@"请先选择城市"];
-//    }
-    
-    [api requestWithURL:urlString params:params delegate:self];
+   
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -71,6 +61,7 @@ static NSString *const reuseIdentifier = @"stroeCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LCStoreTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
+    cell.store = self.stores[indexPath.row];
     return cell;
 }
 
@@ -81,12 +72,35 @@ static NSString *const reuseIdentifier = @"stroeCell";
 
 
 
-- (void)request:(DPRequest *)request didFailWithError:(NSError *)error
+- (void)startRequest
 {
+    NSString *urlString = @"v1/business/find_businesses";
+    DPAPI *api = [[DPAPI alloc] init];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    //    if (cityName.length > 0) {
+    params[@"city"] = @"成都";
+    //    }else{
+    //        [SVProgressHUD showErrorWithStatus:@"请先选择城市"];
+    //    }
+    
+    [api requestWithURL:urlString params:params delegate:self];
 }
+
 - (void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result
 {
-     LCLog(@"%@",result[@"businesses"]);
+    NSArray *deals = [LCStore objectArrayWithKeyValuesArray:result[@"businesses"]];
+//    if (self.page == 1) {//第一页数据,清除之前的旧数据
+//        [self.deals removeAllObjects];
+//    }
+    [self.stores addObjectsFromArray:deals];
+    [self.tableView reloadData];
 
 }
+
+- (void)request:(DPRequest *)request didFailWithError:(NSError *)error
+{
+    
+}
+
 @end
