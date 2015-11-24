@@ -51,15 +51,6 @@
     return _deals;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    LCUserInfo *userInfo = [LCUserInfo sharedLCUserInfo];
-    if (userInfo.selectedCityName.length > 0 && _districtTopItem) {
-        [_districtTopItem setTitle:userInfo.selectedCityName];
-        self.selectedCityName = userInfo.selectedCityName;
-        [self startRequst];
-    }
-}
 
 - (void)viewDidLoad
 {

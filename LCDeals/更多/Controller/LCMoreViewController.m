@@ -33,7 +33,7 @@ static NSString *const reuseIdentifier = @"moreCell";
         NSMutableArray *section3 = @[@{kCell_Title : @"意见反馈",kCell_Arrow : @"right_arrow"},
                                      @{kCell_Title : @"关于我们",kCell_Arrow : @"right_arrow"},
                                      @{kCell_Title : @"帮助",kCell_Arrow : @"right_arrow"}].copy;
-        NSMutableArray *section4 = @[@{kCell_Title : @"安全退出"}].copy;
+        NSMutableArray *section4 = @[@{kCell_Title : @"安全退出", @"islast":@YES}].copy;
         _datas = [[NSMutableArray alloc] initWithObjects:section1,section2,section3,section4, nil];
     }
     
@@ -50,7 +50,7 @@ static NSString *const reuseIdentifier = @"moreCell";
 
 - (void)setupSubviews
 {
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 65, SCREEN_WIDTH, SCREEN_HEIGHT - 64) style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 65, SCREEN_WIDTH, SCREEN_HEIGHT - 64) style:UITableViewStyleGrouped];
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 1)];

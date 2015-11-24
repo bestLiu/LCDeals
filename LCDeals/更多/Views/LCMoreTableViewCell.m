@@ -38,11 +38,23 @@
         countLabel.textAlignment = NSTextAlignmentRight;
         [self.contentView addSubview:countLabel];
     }
+    
+    if (datas[@"islast"]) {
+        
+        //遍历约束
+        NSArray* constrains = self.contentView.constraints;
+        for (NSLayoutConstraint* constraint in constrains) {
+            if (constraint.firstAttribute == NSLayoutAttributeLeading) {
+                // 默认左右加了8的空白所以屏幕宽度实际上是小了16
+                constraint.constant = (SCREEN_WIDTH- 16 - CGRectGetWidth(_titleLabel.frame))*0.5;
+                break;
+            }
+            
+        }
+        _titleLabel.textAlignment = 1;
+        _titleLabel.textColor = [UIColor redColor];
+    }
 }
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
-}
 
 @end

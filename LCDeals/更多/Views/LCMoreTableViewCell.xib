@@ -20,7 +20,7 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="150" id="YG4-p3-VD8"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
