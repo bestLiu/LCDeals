@@ -111,6 +111,7 @@
     if (self.navigationController.viewControllers.count > 1) {
         for (UIViewController *vc in self.navigationController.viewControllers) {
             if ([vc isKindOfClass:NSClassFromString(@"LCDiscoverViewController")]) {
+                [LCUserInfo sharedLCUserInfo].selectedCityName = cityName;
                 [self.navigationController popToViewController:vc animated:YES];
                 return;
             }

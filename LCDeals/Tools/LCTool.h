@@ -9,6 +9,7 @@
 
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "LCDeal.h"
 #import "LCCategory.h"
 
@@ -25,5 +26,7 @@
 + (LCCategory *)categoryWithDeal:(LCDeal *)deal;
 
 + (NSArray *)sorts;
+
++ (UIImage *)imageWithColor:(UIColor *)color andSize:(CGSize)size;
 
 @end

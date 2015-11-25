@@ -11,6 +11,7 @@
 #import "LCStore.h"
 #import "LCStoreTableViewCell.h"
 #import "MJExtension.h"
+#import "LCStroeDetailVC.h"
 
 @interface LCStroeViewController ()<DPRequestDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -69,6 +70,9 @@ static NSString *const reuseIdentifier = @"stroeCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    LCStroeDetailVC *detailVC = [[LCStroeDetailVC alloc] init];
+    detailVC.store = self.stores[indexPath.row];
+    [self pushViewController:detailVC animated:YES];
 }
 
 
@@ -97,6 +101,7 @@ static NSString *const reuseIdentifier = @"stroeCell";
     [self.stores addObjectsFromArray:deals];
     [self.tableView reloadData];
 
+    NSLog(@"%@",result[@"businesses"]);
 }
 
 - (void)request:(DPRequest *)request didFailWithError:(NSError *)error

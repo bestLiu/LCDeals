@@ -11,6 +11,9 @@
 
 @interface LCStore : NSObject
 
+//商户ID
+@property (copy, nonatomic) NSString *business_id;
+
 //店名
 @property (copy, nonatomic) NSString *name;
 
@@ -29,5 +32,7 @@
 //人均消费
 @property (copy, nonatomic) NSString *avg_price;
 
+
+@property (copy, nonatomic) NSString *business_url;
 
 @end

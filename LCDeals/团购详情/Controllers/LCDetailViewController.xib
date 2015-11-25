@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LCDetailViewController">
+            <connections>
+                <outlet property="puchaseButton" destination="rgy-FY-N1L" id="1tF-MT-o0C"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webView" destination="BSl-Ph-eKE" id="X8P-uv-DEU"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BSl-Ph-eKE">
+                    <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="2I9-DB-SKx"/>
+                    </connections>
+                </webView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgy-FY-N1L">
+                    <rect key="frame" x="20" y="555" width="560" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="iZ5-ut-rwL"/>
+                    </constraints>
+                    <state key="normal" title="立即购买"/>
+                    <connections>
+                        <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="MI4-qR-Xko"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="BSl-Ph-eKE" secondAttribute="trailing" id="FTF-Kf-twy"/>
+                <constraint firstAttribute="trailing" secondItem="rgy-FY-N1L" secondAttribute="trailing" constant="20" id="GVe-qH-QV7"/>
+                <constraint firstItem="rgy-FY-N1L" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Pay-1q-myk"/>
+                <constraint firstAttribute="bottom" secondItem="rgy-FY-N1L" secondAttribute="bottom" constant="5" id="eEz-gB-zN1"/>
+                <constraint firstItem="BSl-Ph-eKE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="h0P-Fk-xSw"/>
+                <constraint firstItem="BSl-Ph-eKE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iE2-OF-wqx"/>
+                <constraint firstAttribute="bottom" secondItem="BSl-Ph-eKE" secondAttribute="bottom" id="v6r-cr-DWj"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

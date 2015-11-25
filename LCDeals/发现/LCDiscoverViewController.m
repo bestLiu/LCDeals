@@ -13,6 +13,7 @@
 #import "DPAPI.h"
 #import "MJExtension.h"
 #import "LCCityViewController.h"
+#import "LCDetailViewController.h"
 
 @interface LCDiscoverViewController ()<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, DPRequestDelegate>
 
@@ -128,6 +129,11 @@ static NSString *const reuseIdentifier = @"mainCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    LCDetailViewController *detailVc = [[LCDetailViewController alloc] init];
+    detailVc.deal = self.deals[indexPath.row];
+    [self pushViewController:detailVc animated:YES];
+    
 }
 
 #pragma mark - UISearchBarDelegate

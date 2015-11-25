@@ -88,6 +88,13 @@
 		89CEAAF01C0469580098AB14 /* LCStoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CEAAEE1C0469580098AB14 /* LCStoreTableViewCell.m */; };
 		89CEAAF11C0469580098AB14 /* LCStoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89CEAAEF1C0469580098AB14 /* LCStoreTableViewCell.xib */; };
 		89D0ED711C05632900AD2C13 /* LCSortButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D0ED701C05632900AD2C13 /* LCSortButton.m */; };
+		89D0ED791C058B0100AD2C13 /* LCDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D0ED771C058B0100AD2C13 /* LCDetailViewController.m */; };
+		89D0ED7A1C058B0100AD2C13 /* LCDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D0ED781C058B0100AD2C13 /* LCDetailViewController.xib */; };
+		89D0ED7E1C059B8200AD2C13 /* LCStroeDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D0ED7C1C059B8200AD2C13 /* LCStroeDetailVC.m */; };
+		89D0ED7F1C059B8200AD2C13 /* LCStroeDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D0ED7D1C059B8200AD2C13 /* LCStroeDetailVC.xib */; };
+		89D0ED831C05AFD500AD2C13 /* LCMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D0ED821C05AFD500AD2C13 /* LCMapViewController.m */; };
+		89D0ED871C05B07E00AD2C13 /* LCDealAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D0ED861C05B07E00AD2C13 /* LCDealAnnotation.m */; };
+		89D0ED8C1C05B0C800AD2C13 /* LCMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D0ED8B1C05B0C800AD2C13 /* LCMapViewController.xib */; };
 		89EA8B521BFF133E003D21F5 /* LCMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA8B501BFF133E003D21F5 /* LCMainTableViewCell.m */; };
 		89EA8B531BFF133E003D21F5 /* LCMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89EA8B511BFF133E003D21F5 /* LCMainTableViewCell.xib */; };
 		89EEEE501BFDA49D00137117 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EEEE371BFDA49D00137117 /* MASCompositeConstraint.m */; };
@@ -302,6 +309,17 @@
 		89CEAAEF1C0469580098AB14 /* LCStoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCStoreTableViewCell.xib; sourceTree = "<group>"; };
 		89D0ED6F1C05632900AD2C13 /* LCSortButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCSortButton.h; sourceTree = "<group>"; };
 		89D0ED701C05632900AD2C13 /* LCSortButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCSortButton.m; sourceTree = "<group>"; };
+		89D0ED761C058B0100AD2C13 /* LCDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCDetailViewController.h; sourceTree = "<group>"; };
+		89D0ED771C058B0100AD2C13 /* LCDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCDetailViewController.m; sourceTree = "<group>"; };
+		89D0ED781C058B0100AD2C13 /* LCDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCDetailViewController.xib; sourceTree = "<group>"; };
+		89D0ED7B1C059B8200AD2C13 /* LCStroeDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCStroeDetailVC.h; sourceTree = "<group>"; };
+		89D0ED7C1C059B8200AD2C13 /* LCStroeDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCStroeDetailVC.m; sourceTree = "<group>"; };
+		89D0ED7D1C059B8200AD2C13 /* LCStroeDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCStroeDetailVC.xib; sourceTree = "<group>"; };
+		89D0ED811C05AFD500AD2C13 /* LCMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCMapViewController.h; sourceTree = "<group>"; };
+		89D0ED821C05AFD500AD2C13 /* LCMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCMapViewController.m; sourceTree = "<group>"; };
+		89D0ED851C05B07E00AD2C13 /* LCDealAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCDealAnnotation.h; sourceTree = "<group>"; };
+		89D0ED861C05B07E00AD2C13 /* LCDealAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCDealAnnotation.m; sourceTree = "<group>"; };
+		89D0ED8B1C05B0C800AD2C13 /* LCMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCMapViewController.xib; sourceTree = "<group>"; };
 		89EA8B4F1BFF133E003D21F5 /* LCMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCMainTableViewCell.h; sourceTree = "<group>"; };
 		89EA8B501BFF133E003D21F5 /* LCMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCMainTableViewCell.m; sourceTree = "<group>"; };
 		89EA8B511BFF133E003D21F5 /* LCMainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCMainTableViewCell.xib; sourceTree = "<group>"; };
@@ -425,6 +443,8 @@
 				890E304E1BFC6E400096CC89 /* 我 */,
 				890E30461BFC6E2B0096CC89 /* 更多 */,
 				89FCD4B61BFEBEC90000C051 /* 城市 */,
+				89D0ED721C058AC000AD2C13 /* 团购详情 */,
+				89D0ED801C05A8AB00AD2C13 /* 地图 */,
 				890E2FF51BFC4BCA0096CC89 /* Assets.xcassets */,
 				890E2FE91BFC4BCA0096CC89 /* Supporting Files */,
 			);
@@ -788,6 +808,9 @@
 			children = (
 				89CEAAE71C04615A0098AB14 /* LCStroeViewController.h */,
 				89CEAAE81C04615A0098AB14 /* LCStroeViewController.m */,
+				89D0ED7B1C059B8200AD2C13 /* LCStroeDetailVC.h */,
+				89D0ED7C1C059B8200AD2C13 /* LCStroeDetailVC.m */,
+				89D0ED7D1C059B8200AD2C13 /* LCStroeDetailVC.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -809,6 +832,61 @@
 				89CEAAEF1C0469580098AB14 /* LCStoreTableViewCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		89D0ED721C058AC000AD2C13 /* 团购详情 */ = {
+			isa = PBXGroup;
+			children = (
+				89D0ED741C058AC000AD2C13 /* Model */,
+				89D0ED731C058AC000AD2C13 /* Controllers */,
+				89D0ED751C058AC000AD2C13 /* Views */,
+			);
+			path = "团购详情";
+			sourceTree = "<group>";
+		};
+		89D0ED731C058AC000AD2C13 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				89D0ED761C058B0100AD2C13 /* LCDetailViewController.h */,
+				89D0ED771C058B0100AD2C13 /* LCDetailViewController.m */,
+				89D0ED781C058B0100AD2C13 /* LCDetailViewController.xib */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		89D0ED741C058AC000AD2C13 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		89D0ED751C058AC000AD2C13 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		89D0ED801C05A8AB00AD2C13 /* 地图 */ = {
+			isa = PBXGroup;
+			children = (
+				89D0ED841C05B04D00AD2C13 /* Model */,
+				89D0ED811C05AFD500AD2C13 /* LCMapViewController.h */,
+				89D0ED821C05AFD500AD2C13 /* LCMapViewController.m */,
+				89D0ED8B1C05B0C800AD2C13 /* LCMapViewController.xib */,
+			);
+			name = "地图";
+			path = "团购详情/地图";
+			sourceTree = "<group>";
+		};
+		89D0ED841C05B04D00AD2C13 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				89D0ED851C05B07E00AD2C13 /* LCDealAnnotation.h */,
+				89D0ED861C05B07E00AD2C13 /* LCDealAnnotation.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		89EEEE341BFDA49D00137117 /* Masonry */ = {
@@ -1010,6 +1088,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89D0ED7A1C058B0100AD2C13 /* LCDetailViewController.xib in Resources */,
 				89FCD4BD1BFEBEC90000C051 /* LCCityViewController.xib in Resources */,
 				89EEEE601BFDB3BF00137117 /* LCMainViewController.xib in Resources */,
 				89EEEE771BFDC20400137117 /* LCDistrictViewController.xib in Resources */,
@@ -1019,6 +1098,8 @@
 				890E2FF61BFC4BCA0096CC89 /* Assets.xcassets in Resources */,
 				89EEEE5E1BFDAE8200137117 /* LCHomeTopItem.xib in Resources */,
 				89CEAAF11C0469580098AB14 /* LCStoreTableViewCell.xib in Resources */,
+				89D0ED7F1C059B8200AD2C13 /* LCStroeDetailVC.xib in Resources */,
+				89D0ED8C1C05B0C800AD2C13 /* LCMapViewController.xib in Resources */,
 				89ABE29C1C02BC73002AE569 /* SVProgressHUD.bundle in Resources */,
 				89CEAABA1C043BC80098AB14 /* LCMoreTableViewCell.xib in Resources */,
 				89EEEEBA1BFDCE7600137117 /* cityGroups.plist in Resources */,
@@ -1052,6 +1133,7 @@
 			files = (
 				890E31121BFC70A40096CC89 /* MJRefreshHeaderView.m in Sources */,
 				89CEAAD61C04447D0098AB14 /* LCUserInfo.m in Sources */,
+				89D0ED791C058B0100AD2C13 /* LCDetailViewController.m in Sources */,
 				89EEEE6C1BFDC11900137117 /* LCHomeDropMainTableViewCell.m in Sources */,
 				890E31831BFC70B90096CC89 /* SDWebImageManager.m in Sources */,
 				890E30641BFC707C0096CC89 /* DPAPI.m in Sources */,
@@ -1062,6 +1144,7 @@
 				89ABE29D1C02BC73002AE569 /* SVProgressHUD.m in Sources */,
 				890E310F1BFC70A40096CC89 /* MJRefreshBaseView.m in Sources */,
 				890E314F1BFC70B10096CC89 /* MJArgument.m in Sources */,
+				89D0ED871C05B07E00AD2C13 /* LCDealAnnotation.m in Sources */,
 				890E31891BFC70B90096CC89 /* UIImageView+HighlightedWebCache.m in Sources */,
 				89CEAAD21C04447D0098AB14 /* LCDeal.m in Sources */,
 				89EA8B521BFF133E003D21F5 /* LCMainTableViewCell.m in Sources */,
@@ -1127,6 +1210,7 @@
 				890E2FEB1BFC4BCA0096CC89 /* main.m in Sources */,
 				89CEAAD51C04447D0098AB14 /* LCSort.m in Sources */,
 				890E30C11BFC70810096CC89 /* UIView+WF.m in Sources */,
+				89D0ED7E1C059B8200AD2C13 /* LCStroeDetailVC.m in Sources */,
 				890E31811BFC70B90096CC89 /* SDWebImageDownloader.m in Sources */,
 				89EEEE661BFDC0EC00137117 /* LCHomeDropView.m in Sources */,
 				89EEEE5D1BFDAE8200137117 /* LCHomeTopItem.m in Sources */,
@@ -1135,6 +1219,7 @@
 				890E31501BFC70B10096CC89 /* MJConst.m in Sources */,
 				890E31111BFC70A40096CC89 /* MJRefreshFooterView.m in Sources */,
 				890E317C1BFC70B90096CC89 /* MKAnnotationView+WebCache.m in Sources */,
+				89D0ED831C05AFD500AD2C13 /* LCMapViewController.m in Sources */,
 				89CEAAE31C044E3D0098AB14 /* LCCenterLineLabel.m in Sources */,
 				89EEEE531BFDA49D00137117 /* MASLayoutConstraint.m in Sources */,
 				890E31541BFC70B10096CC89 /* MJMethod.m in Sources */,

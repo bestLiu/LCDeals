@@ -19,6 +19,8 @@
 #import "LCMainTableViewCell.h"
 #import "LCSortButton.h"
 #import "UIView+Extension.h"
+#import "LCDetailViewController.h"
+#import "LCMapViewController.h"
 
 @interface LCMainViewController ()<UITableViewDataSource,UITableViewDelegate, DPRequestDelegate>
 
@@ -62,7 +64,6 @@
     self.page = 1;
     self.backButton.hidden = YES;
     self.navigationTitle = @"首页";
-//    self.navigationItem.title = @"首页";
         
     [self setupSubViews];
     [self setupNotification];
@@ -70,7 +71,16 @@
 
 - (void)setupSubViews
 {
-    //1、类别
+    UIButton *mapButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    mapButton.frame = CGRectMake(SCREEN_WIDTH - 70, 0, 50, CGRectGetHeight(self.customNavigationBar.frame));
+    [mapButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [mapButton.titleLabel setFont:[UIFont systemFontOfSize:16]];
+    mapButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;//渲染在右边
+    [mapButton setTitle:@"地图" forState:UIControlStateNormal];
+    [mapButton addTarget:self action:@selector(mapButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.customNavigationBar addSubview:mapButton];
+    
+    //类别
     CGFloat itemWith = CGRectGetWidth(self.view.frame)/3.0;
     _categoryTopItem = [LCHomeTopItem item];
     _categoryTopItem.frame = CGRectMake(0, 0, itemWith, 34);
@@ -79,14 +89,14 @@
     [_categoryTopItem addTarget:self action:@selector(categoryClick)];
     [_headView addSubview:_categoryTopItem];
     
-    //2、地区
+    //地区
     _districtTopItem = [LCHomeTopItem item];
     _districtTopItem.frame = CGRectMake(itemWith, 0, itemWith, 34);
     [_districtTopItem setTitle:@"城市"];
     [_districtTopItem addTarget:self action:@selector(districtClick)];
     [_headView addSubview:_districtTopItem];
     
-    //3、排序
+    //排序方式
     _sortTopItem = [LCHomeTopItem item];
     _sortTopItem.frame = CGRectMake(itemWith * 2, 0, itemWith, 34);
     [_sortTopItem setTitle:@"排序"];
@@ -127,6 +137,8 @@
 
 - (void)setupNotification
 {
+    //监听分类的改变
+    [LCNotifiCationCenter addObserver:self selector:@selector(categoryChange:) name:LCCategoryDidChangeNotification object:nil];
     
     //监听城市改变
     [LCNotifiCationCenter addObserver:self selector:@selector(cityChange:) name:LCCityDidSelectNotification object:nil];
@@ -134,21 +146,6 @@
     //监听区域改变
     [LCNotifiCationCenter addObserver:self selector:@selector(regionChange:) name:LCRegionDidChangeNotification object:nil];
 }
-
-#pragma mark - UITableViewDataSource
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    _noRecordView.hidden = self.deals.count != 0;
-    return self.deals.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    LCMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mainCell" forIndexPath:indexPath];
-    cell.deal = self.deals[indexPath.row];
-    return cell;
-}
-#pragma mark - UITabelViewDelegate
 
 
 //显示分类
@@ -365,9 +362,41 @@
     [self startRequst];
 }
 
+
+#pragma mark - UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    _noRecordView.hidden = self.deals.count != 0;
+    return self.deals.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    LCMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mainCell" forIndexPath:indexPath];
+    cell.deal = self.deals[indexPath.row];
+    return cell;
+}
+
+#pragma mark - UITabelViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    LCDetailViewController *detailVc = [[LCDetailViewController alloc] init];
+    detailVc.deal = self.deals[indexPath.row];
+    [self pushViewController:detailVc animated:YES];
+}
+
+
+- (void)mapButtonAction
+{
+    LCMapViewController *mapVC = [[LCMapViewController alloc] init];
+    [self pushViewController:mapVC animated:YES];
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    [LCNotifiCationCenter removeObserver:self name:LCCategoryDidChangeNotification object:nil];
     [_sortBGView removeFromSuperview];
 }
 
