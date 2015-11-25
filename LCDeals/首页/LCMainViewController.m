@@ -17,6 +17,8 @@
 #import "DPAPI.h"
 #import "MJRefresh.h"
 #import "LCMainTableViewCell.h"
+#import "LCSortButton.h"
+#import "UIView+Extension.h"
 
 @interface LCMainViewController ()<UITableViewDataSource,UITableViewDelegate, DPRequestDelegate>
 
@@ -27,14 +29,16 @@
 @property (nonatomic, copy) NSString *selectedCityName;
 @property (nonatomic, copy) NSString *selectedCategoryName;
 @property (nonatomic, copy) NSString *selectedRegionName;
+@property (nonatomic, strong) LCSort *selectedSort;
 
 @property (nonatomic, assign) int page;
-
 @property (nonatomic, strong) NSMutableArray *deals;
 
 @property (weak, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @property (weak, nonatomic) UIView *noRecordView;
+@property (weak, nonatomic) UIView *sortBGView;
 
 @property (nonatomic, weak) DPRequest *lastRequest;
 
@@ -94,6 +98,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"LCMainTableViewCell" bundle:nil] forCellReuseIdentifier:@"mainCell"];
     self.tableView.rowHeight = 120;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.5)];
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.5)];
     [self.tableView addFooterWithTarget:self action:@selector(loadMoreDeals)];
     [self.tableView addHeaderWithTarget:self action:@selector(loadNewDeals)];
     
@@ -122,8 +127,6 @@
 
 - (void)setupNotification
 {
-    //监听分类改变
-    [LCNotifiCationCenter addObserver:self selector:@selector(categoryChange:) name:LCCategoryDidChangeNotification object:nil];
     
     //监听城市改变
     [LCNotifiCationCenter addObserver:self selector:@selector(cityChange:) name:LCCityDidSelectNotification object:nil];
@@ -152,39 +155,14 @@
 - (void)categoryClick
 {
     //显示分类菜单
-//    if (!self.selectedCityName) {
-//        [MBProgressHUD showError:@"请先选择城市" toView:self.view];
-//        return;
-//    }
-
-//    [UIView animateWithDuration:0.3 animations:^{
-//        UIView *categoryDorpView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_headView.frame), self.view.frame.size.width, CGRectGetHeight(self.view.frame) - CGRectGetMaxY(_headView.frame) - 49)];
-//        categoryDorpView.backgroundColor = [UIColor grayColor];
-//        categoryDorpView.userInteractionEnabled = YES;
-//        [self.view addSubview:categoryDorpView];
-//        
-//
-//        
-//    }];
     LCCategoryViewController *categoryVC = [[LCCategoryViewController alloc] init];
     [self pushViewController:categoryVC animated:YES];
-    
     
 }
 
 //显示区域
 - (void)districtClick
 {
-//    [UIView animateWithDuration:0.3 animations:^{
-//        UIView *districtDropView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_headView.frame), self.view.frame.size.width, CGRectGetHeight(self.view.frame) - CGRectGetMaxY(_headView.frame) - 49)];
-//        districtDropView.backgroundColor = [UIColor grayColor];
-//        districtDropView.alpha = 0.5;
-//        districtDropView.userInteractionEnabled = YES;
-//        [self.view addSubview:districtDropView];
-//        
-//        LCDistrictViewController *disVC = [[LCDistrictViewController alloc] init];
-//        [districtDropView addSubview:disVC.view];
-//    }];
     
     LCDistrictViewController *districtVc = [[LCDistrictViewController alloc] init];
     
@@ -202,7 +180,35 @@
 //显示排序方式
 - (void)sortClick
 {
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_districtTopItem.frame), CGRectGetMaxY(_headView.frame), CGRectGetWidth(_sortTopItem.frame), SCREEN_HEIGHT - CGRectGetHeight(_headView.frame)- 108)];
+    bgView.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.8];
+    [self.view addSubview:bgView];
+    _sortBGView = bgView;
     
+    CGFloat btnW = CGRectGetWidth(bgView.frame);
+    CGFloat btnH = 30;
+    CGFloat btnX = 0;
+    CGFloat btnStartY = 15;
+    CGFloat btnMargin = 15;
+    CGFloat height = 0;
+    NSArray *sorts = [LCTool sorts];
+    NSInteger count = sorts.count;
+    for (int i = 0; i < count; i ++) {
+        LCSort *sort = sorts[i];
+        LCSortButton *button = [[LCSortButton alloc] init];
+        button.sort = sort;//绑定sort
+        button.x = btnX;
+        button.y = btnStartY + i*(btnH + btnMargin);
+        button.width = btnW;
+        button.height = btnH;
+        
+        [button setTitle:sort.label forState:UIControlStateNormal];
+        
+        [button addTarget:self action:@selector(sortChanged:) forControlEvents:UIControlEventTouchUpInside];
+        [bgView addSubview:button];
+        height = CGRectGetMaxY(button.frame);
+    }
+    bgView.height = height;
 }
 
 
@@ -261,8 +267,18 @@
     if ([self.selectedRegionName isEqualToString:@"全部"]) {
         self.selectedRegionName = nil;
     }
+    
+}
+
+- (void)sortChanged:(LCSortButton *)button
+{
+    NSLog(@"%d点击了： %@",button.sort.value,button.sort.label);
+    [button.superview removeFromSuperview];
+    [_sortTopItem setSubtitle:button.sort.label];
+    self.selectedSort = button.sort;
     [self.tableView headerBeginRefreshing];
 }
+
 
 - (void)startRequst
 {
@@ -270,17 +286,29 @@
     
     DPAPI *api = [[DPAPI alloc] init];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"city"] = self.selectedCityName;
+    
+    
     params[@"page"] = @(self.page);
     params[@"limit"] = @20;
+    if (self.selectedCityName) {
+        params[@"city"] = self.selectedCityName;
+    }else{
+        [SVProgressHUD showErrorWithStatus:@"请先选择城市"];
+        return;
+    }
     if (self.selectedCategoryName) {
-                params[@"category"] = self.selectedCategoryName;
+       params[@"category"] = self.selectedCategoryName;
             }
-        if (self.selectedRegionName) {
+    if (self.selectedRegionName) {
             params[@"region"] = self.selectedRegionName;
         }
+    if (self.selectedSort) {
+        params[@"sort"] = @(self.selectedSort.value);
+    }
     self.lastRequest = [api requestWithURL:urlString params:params delegate:self];
 }
+
+
 
 #pragma mark 请求代理
 - (void)request:(DPRequest *)request didFailWithError:(NSError *)error
@@ -337,6 +365,11 @@
     [self startRequst];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [_sortBGView removeFromSuperview];
+}
 
 - (void)dealloc
 {

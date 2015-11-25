@@ -87,6 +87,7 @@
 		89CEAAEC1C0461730098AB14 /* LCStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CEAAEB1C0461730098AB14 /* LCStore.m */; };
 		89CEAAF01C0469580098AB14 /* LCStoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CEAAEE1C0469580098AB14 /* LCStoreTableViewCell.m */; };
 		89CEAAF11C0469580098AB14 /* LCStoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89CEAAEF1C0469580098AB14 /* LCStoreTableViewCell.xib */; };
+		89D0ED711C05632900AD2C13 /* LCSortButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D0ED701C05632900AD2C13 /* LCSortButton.m */; };
 		89EA8B521BFF133E003D21F5 /* LCMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA8B501BFF133E003D21F5 /* LCMainTableViewCell.m */; };
 		89EA8B531BFF133E003D21F5 /* LCMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89EA8B511BFF133E003D21F5 /* LCMainTableViewCell.xib */; };
 		89EEEE501BFDA49D00137117 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EEEE371BFDA49D00137117 /* MASCompositeConstraint.m */; };
@@ -108,7 +109,6 @@
 		89EEEE751BFDC20400137117 /* LCCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EEEE6F1BFDC20400137117 /* LCCategoryViewController.m */; };
 		89EEEE761BFDC20400137117 /* LCDistrictViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EEEE711BFDC20400137117 /* LCDistrictViewController.m */; };
 		89EEEE771BFDC20400137117 /* LCDistrictViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89EEEE721BFDC20400137117 /* LCDistrictViewController.xib */; };
-		89EEEE781BFDC20400137117 /* LCSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EEEE741BFDC20400137117 /* LCSortViewController.m */; };
 		89EEEEB21BFDC79D00137117 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EEEEB11BFDC79D00137117 /* UIView+Extension.m */; };
 		89EEEEB81BFDCE7600137117 /* categories.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89EEEEB41BFDCE7600137117 /* categories.plist */; };
 		89EEEEB91BFDCE7600137117 /* cities.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89EEEEB51BFDCE7600137117 /* cities.plist */; };
@@ -300,6 +300,8 @@
 		89CEAAED1C0469580098AB14 /* LCStoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCStoreTableViewCell.h; sourceTree = "<group>"; };
 		89CEAAEE1C0469580098AB14 /* LCStoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCStoreTableViewCell.m; sourceTree = "<group>"; };
 		89CEAAEF1C0469580098AB14 /* LCStoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCStoreTableViewCell.xib; sourceTree = "<group>"; };
+		89D0ED6F1C05632900AD2C13 /* LCSortButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCSortButton.h; sourceTree = "<group>"; };
+		89D0ED701C05632900AD2C13 /* LCSortButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCSortButton.m; sourceTree = "<group>"; };
 		89EA8B4F1BFF133E003D21F5 /* LCMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCMainTableViewCell.h; sourceTree = "<group>"; };
 		89EA8B501BFF133E003D21F5 /* LCMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCMainTableViewCell.m; sourceTree = "<group>"; };
 		89EA8B511BFF133E003D21F5 /* LCMainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCMainTableViewCell.xib; sourceTree = "<group>"; };
@@ -343,8 +345,6 @@
 		89EEEE701BFDC20400137117 /* LCDistrictViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCDistrictViewController.h; sourceTree = "<group>"; };
 		89EEEE711BFDC20400137117 /* LCDistrictViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCDistrictViewController.m; sourceTree = "<group>"; };
 		89EEEE721BFDC20400137117 /* LCDistrictViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCDistrictViewController.xib; sourceTree = "<group>"; };
-		89EEEE731BFDC20400137117 /* LCSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCSortViewController.h; sourceTree = "<group>"; };
-		89EEEE741BFDC20400137117 /* LCSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCSortViewController.m; sourceTree = "<group>"; };
 		89EEEEB01BFDC79D00137117 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		89EEEEB11BFDC79D00137117 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		89EEEEB41BFDCE7600137117 /* categories.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = categories.plist; sourceTree = "<group>"; };
@@ -854,8 +854,6 @@
 				89EEEE701BFDC20400137117 /* LCDistrictViewController.h */,
 				89EEEE711BFDC20400137117 /* LCDistrictViewController.m */,
 				89EEEE721BFDC20400137117 /* LCDistrictViewController.xib */,
-				89EEEE731BFDC20400137117 /* LCSortViewController.h */,
-				89EEEE741BFDC20400137117 /* LCSortViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -877,6 +875,8 @@
 				89EA8B511BFF133E003D21F5 /* LCMainTableViewCell.xib */,
 				89CEAAE11C044E3D0098AB14 /* LCCenterLineLabel.h */,
 				89CEAAE21C044E3D0098AB14 /* LCCenterLineLabel.m */,
+				89D0ED6F1C05632900AD2C13 /* LCSortButton.h */,
+				89D0ED701C05632900AD2C13 /* LCSortButton.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1070,6 +1070,7 @@
 				89ABE2AB1C031A40002AE569 /* LCPersonalTableViewCell.m in Sources */,
 				890E30441BFC6E100096CC89 /* LCBaseNavgationController.m in Sources */,
 				890E30651BFC707C0096CC89 /* DPRequest.m in Sources */,
+				89D0ED711C05632900AD2C13 /* LCSortButton.m in Sources */,
 				890E31571BFC70B10096CC89 /* NSObject+MJCoding.m in Sources */,
 				89CEAACE1C04447D0098AB14 /* LCBusiness.m in Sources */,
 				890E31861BFC70B90096CC89 /* UIImage+GIF.m in Sources */,
@@ -1082,7 +1083,6 @@
 				89FCD4BC1BFEBEC90000C051 /* LCCityViewController.m in Sources */,
 				890E30451BFC6E100096CC89 /* LCTabBarController.m in Sources */,
 				89EEEE591BFDA49D00137117 /* ViewController+MASAdditions.m in Sources */,
-				89EEEE781BFDC20400137117 /* LCSortViewController.m in Sources */,
 				89CEAAD41C04447D0098AB14 /* LCRestrictions.m in Sources */,
 				89FCD4BE1BFEBEC90000C051 /* LCSearchResultTableViewController.m in Sources */,
 				89EEEE511BFDA49D00137117 /* MASConstraint.m in Sources */,

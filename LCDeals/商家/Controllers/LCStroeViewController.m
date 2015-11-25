@@ -47,6 +47,7 @@ static NSString *const reuseIdentifier = @"stroeCell";
     tableView.dataSource = self;
     tableView.rowHeight = 100;
     tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 1)];
+    tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 1)];
     [tableView registerNib:[UINib nibWithNibName:@"LCStoreTableViewCell" bundle:nil] forCellReuseIdentifier:reuseIdentifier];
     [self.view addSubview:tableView];
     _tableView = tableView;
