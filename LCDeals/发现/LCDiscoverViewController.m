@@ -43,8 +43,8 @@ static NSString *const reuseIdentifier = @"mainCell";
 {
     [super viewWillAppear:animated];
     
-    if ([LCUserInfo sharedLCUserInfo].selectedCityName.length > 0 && _cityButton) {
-        NSString *buttonText = [LCUserInfo sharedLCUserInfo].selectedCityName.length > 0 ? [LCUserInfo sharedLCUserInfo].selectedCityName : @"请选择城市";
+    if (self.cityName.length > 0 && _cityButton) {
+        NSString *buttonText = self.cityName.length > 0 ? self.cityName : @"请选择城市";
         [_cityButton setTitle:buttonText forState:UIControlStateNormal];
     }
 }
@@ -64,8 +64,8 @@ static NSString *const reuseIdentifier = @"mainCell";
     cityButton.frame = CGRectMake(15, 0, 80, CGRectGetHeight(self.customNavigationBar.frame));
     [cityButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [cityButton.titleLabel setFont:[UIFont systemFontOfSize:14]];
-    LCUserInfo *userInfo = [LCUserInfo sharedLCUserInfo];
-    NSString *buttonText = userInfo.selectedCityName.length > 0 ? userInfo.selectedCityName : @"请选择城市";
+    NSString *cityName = [userDefaults objectForKey:kUDCityNameKey];
+    NSString *buttonText = cityName.length > 0 ? cityName : @"请选择城市";
     cityButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [cityButton setTitle:buttonText forState:UIControlStateNormal];
     [cityButton addTarget:self action:@selector(cityButtonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -146,7 +146,7 @@ static NSString *const reuseIdentifier = @"mainCell";
 
 - (void)tableHeaderRefresh
 {
-    NSString *cityName = [LCUserInfo sharedLCUserInfo].selectedCityName;
+    NSString *cityName = _cityButton.titleLabel.text;
     
     // 发请求给服务器
     NSString *urlString = @"v1/deal/find_deals";

@@ -13,6 +13,7 @@
 #import "LCCityGroup.h"
 #import "UIView+AutoLayout.h"
 #import "LCSearchResultTableViewController.h"
+#import "LCDiscoverViewController.h"
 
 
 
@@ -111,7 +112,8 @@
     if (self.navigationController.viewControllers.count > 1) {
         for (UIViewController *vc in self.navigationController.viewControllers) {
             if ([vc isKindOfClass:NSClassFromString(@"LCDiscoverViewController")]) {
-                [LCUserInfo sharedLCUserInfo].selectedCityName = cityName;
+                LCDiscoverViewController *disVC = (LCDiscoverViewController *)vc;
+                disVC.cityName = cityName;
                 [self.navigationController popToViewController:vc animated:YES];
                 return;
             }

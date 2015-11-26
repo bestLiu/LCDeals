@@ -8,7 +8,6 @@
 
 #import "LCCategoryViewController.h"
 #import "LCHomeDropView.h"
-//#import "LCCategory.h"
 #import "MJExtension.h"
 #import "UIView+Extension.h"
 
@@ -74,6 +73,13 @@
     
     if (category.subcategories.count == 0) {//没有子类别
         //发通知
+        for (UIViewController *vc in self.navigationController.viewControllers) {
+            if ([vc isKindOfClass:NSClassFromString(@"LCMapViewController")]) {
+                [LCNotifiCationCenter postNotificationName:LCCategoryMapDidChangeNotification object:self userInfo:@{LCCategoryMapSelectKey:category}];
+                [self backButtonClicked:nil];
+                return;
+            }
+        }
         [LCNotifiCationCenter postNotificationName:LCCategoryDidChangeNotification object:self userInfo:@{LCCategorySelectKey:category}];
         [self backButtonClicked:nil];
     }
@@ -83,7 +89,13 @@
     LCCategory *category = [LCTool categories][mainRow];
      NSLog(@"%@____%@",category.name,category.subcategories[row]);
     
-    
+    for (UIViewController *vc in self.navigationController.viewControllers) {
+        if ([vc isKindOfClass:NSClassFromString(@"LCMapViewController")]) {
+            [LCNotifiCationCenter postNotificationName:LCCategoryMapDidChangeNotification object:self userInfo:@{LCCategoryMapSelectKey:category,LCSubCategoryMapSelectKey:category.subcategories[row]}];
+            [self backButtonClicked:nil];
+            return;
+        }
+    }
     //发通知
     [LCNotifiCationCenter postNotificationName:LCCategoryDidChangeNotification object:self userInfo:@{LCCategorySelectKey:category,LCSubCategorySelectKey:category.subcategories[row]}];
     [self backButtonClicked:nil];

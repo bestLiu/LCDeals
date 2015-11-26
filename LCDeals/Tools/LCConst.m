@@ -18,3 +18,7 @@ NSString *const LCSubRegionSelectKey = @"LCSubRegionSelectKey";
 NSString *const LCCollectStateDidChangeNotification = @"LCCollectStateDidChangeNotification";
 NSString *const LCCollectDealKey = @"LCCollectDealKey";
 NSString *const LCIsCollectKey = @"LCIsCollectKey";
+
+NSString *const LCCategoryMapDidChangeNotification = @"LCCategoryMapDidChangeNotification";
+NSString *const LCCategoryMapSelectKey = @"LCCategoryMapSelectKey";
+NSString *const LCSubCategoryMapSelectKey = @"LCSubCategoryMapSelectKey";

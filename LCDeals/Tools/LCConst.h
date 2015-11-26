@@ -8,6 +8,8 @@
 
 #define kNetworkErrorMsg              @"网络错误，请稍后再试"
 
+#define kUDCityNameKey              @"selectedCityName"
+
 //屏幕宽度
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 //屏幕高度
@@ -34,6 +36,9 @@
 //灰色分割线
 #define UIColor_GrayLine           UIColorFromRGB(0xcacaca)
 
+
+#define userDefaults  [NSUserDefaults standardUserDefaults]
+
 extern NSString *const LCCityDidSelectNotification;
 extern NSString *const LCCitySelectCityKey;
 
@@ -51,3 +56,8 @@ extern NSString *const LCSubRegionSelectKey;
 extern NSString *const LCCollectStateDidChangeNotification;
 extern NSString *const LCIsCollectKey;
 extern NSString *const LCCollectDealKey;
+
+
+extern NSString *const LCCategoryMapDidChangeNotification;
+extern NSString *const LCCategoryMapSelectKey;
+extern NSString *const LCSubCategoryMapSelectKey;

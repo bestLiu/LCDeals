@@ -4,7 +4,7 @@
 <array>
 	<dict>
 		<key>label</key>
-		<string>默认排序</string>
+		<string>智能排序</string>
 		<key>value</key>
 		<integer>1</integer>
 	</dict>

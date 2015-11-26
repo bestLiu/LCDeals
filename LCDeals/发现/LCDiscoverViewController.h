@@ -10,4 +10,6 @@
 
 @interface LCDiscoverViewController : LCBaseViewController
 
+@property (copy, nonatomic) NSString *cityName;
+
 @end

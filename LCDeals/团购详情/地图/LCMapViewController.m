@@ -84,7 +84,7 @@
     self.mapView.delegate = self;
     
     //监听分类改变
-    [LCNotifiCationCenter addObserver:self selector:@selector(categoryChange:) name:LCCategoryDidChangeNotification object:nil];
+    [LCNotifiCationCenter addObserver:self selector:@selector(categoryChange:) name:LCCategoryMapDidChangeNotification object:nil];
     
 }
 
@@ -97,20 +97,21 @@
 
 - (void)categoryChange:(NSNotification *)noti
 {
-    LCCategory *category = noti.userInfo[LCCategorySelectKey];
-    NSString *subcategoryName = noti.userInfo[LCSubCategorySelectKey];
+    LCCategory *category = noti.userInfo[LCCategoryMapSelectKey];
+    NSString *subcategoryName = noti.userInfo[LCSubCategoryMapSelectKey];
     
     //改变顶部文字
     [_topItem setIcon:category.icon highlightIcon:category.highlighted_icon];
-    [_topItem setTitle:category.name];
-    [_topItem setSubtitle:subcategoryName];
+    [_topItem setTitle:subcategoryName];
     
     if (subcategoryName == nil ||[subcategoryName isEqualToString:@"全部"]) {//点击了没有子分类的类别
         self.selectedCategoryName = category.name;
     }else{
         self.selectedCategoryName = subcategoryName;
     }
-    
+    //改变顶部文字
+    [_topItem setIcon:category.icon highlightIcon:category.highlighted_icon];
+    [_topItem setTitle:self.selectedCategoryName];
     if ([self.selectedCategoryName isEqualToString:@"全部分类"]) {
         self.selectedCategoryName = nil;
     }
@@ -139,10 +140,7 @@
     //知道经纬度 ---->>>>> 获取城市名(地理反编码)
     [self.coder reverseGeocodeLocation:userLocation.location completionHandler:^(NSArray *placemarks, NSError *error) {
         if (error || placemarks.count == 0) return;
-        
         CLPlacemark *pm = [placemarks firstObject];
-        NSLog(@"地理反编码--->>> %@---%@",pm.locality,pm.addressDictionary);
-        
         NSString *city = pm.locality ? pm.locality : pm.addressDictionary[@"State"];
         self.city = [city substringToIndex:city.length - 1];
         

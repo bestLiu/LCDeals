@@ -61,6 +61,7 @@
 		890E318B1BFC70B90096CC89 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 890E317B1BFC70B90096CC89 /* UIView+WebCacheOperation.m */; };
 		890E358C1BFC71AA0096CC89 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 890E358B1BFC71AA0096CC89 /* libsqlite3.tbd */; };
 		890E358E1BFC71F50096CC89 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 890E358D1BFC71F50096CC89 /* libz.tbd */; };
+		89821E511C06BA4200157526 /* LCCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89821E501C06BA4200157526 /* LCCollectViewController.m */; };
 		89ABE29C1C02BC73002AE569 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 89ABE2971C02BC73002AE569 /* SVProgressHUD.bundle */; };
 		89ABE29D1C02BC73002AE569 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 89ABE2991C02BC73002AE569 /* SVProgressHUD.m */; };
 		89ABE2A71C031A03002AE569 /* LCPersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89ABE2A41C031A03002AE569 /* LCPersonalViewController.m */; };
@@ -115,7 +116,6 @@
 		89EEEE6D1BFDC11900137117 /* LCHomeDropSubTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EEEE6B1BFDC11900137117 /* LCHomeDropSubTableViewCell.m */; };
 		89EEEE751BFDC20400137117 /* LCCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EEEE6F1BFDC20400137117 /* LCCategoryViewController.m */; };
 		89EEEE761BFDC20400137117 /* LCDistrictViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EEEE711BFDC20400137117 /* LCDistrictViewController.m */; };
-		89EEEE771BFDC20400137117 /* LCDistrictViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89EEEE721BFDC20400137117 /* LCDistrictViewController.xib */; };
 		89EEEEB21BFDC79D00137117 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EEEEB11BFDC79D00137117 /* UIView+Extension.m */; };
 		89EEEEB81BFDCE7600137117 /* categories.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89EEEEB41BFDCE7600137117 /* categories.plist */; };
 		89EEEEB91BFDCE7600137117 /* cities.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89EEEEB51BFDCE7600137117 /* cities.plist */; };
@@ -259,6 +259,8 @@
 		890E317B1BFC70B90096CC89 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		890E358B1BFC71AA0096CC89 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		890E358D1BFC71F50096CC89 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		89821E4F1C06BA4200157526 /* LCCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCCollectViewController.h; sourceTree = "<group>"; };
+		89821E501C06BA4200157526 /* LCCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCCollectViewController.m; sourceTree = "<group>"; };
 		89ABE2971C02BC73002AE569 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		89ABE2981C02BC73002AE569 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		89ABE2991C02BC73002AE569 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
@@ -362,7 +364,6 @@
 		89EEEE6F1BFDC20400137117 /* LCCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCCategoryViewController.m; sourceTree = "<group>"; };
 		89EEEE701BFDC20400137117 /* LCDistrictViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCDistrictViewController.h; sourceTree = "<group>"; };
 		89EEEE711BFDC20400137117 /* LCDistrictViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCDistrictViewController.m; sourceTree = "<group>"; };
-		89EEEE721BFDC20400137117 /* LCDistrictViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCDistrictViewController.xib; sourceTree = "<group>"; };
 		89EEEEB01BFDC79D00137117 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		89EEEEB11BFDC79D00137117 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		89EEEEB41BFDCE7600137117 /* categories.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = categories.plist; sourceTree = "<group>"; };
@@ -716,6 +717,8 @@
 			children = (
 				89ABE2A31C031A03002AE569 /* LCPersonalViewController.h */,
 				89ABE2A41C031A03002AE569 /* LCPersonalViewController.m */,
+				89821E4F1C06BA4200157526 /* LCCollectViewController.h */,
+				89821E501C06BA4200157526 /* LCCollectViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -931,7 +934,6 @@
 				89EEEE6F1BFDC20400137117 /* LCCategoryViewController.m */,
 				89EEEE701BFDC20400137117 /* LCDistrictViewController.h */,
 				89EEEE711BFDC20400137117 /* LCDistrictViewController.m */,
-				89EEEE721BFDC20400137117 /* LCDistrictViewController.xib */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -1091,7 +1093,6 @@
 				89D0ED7A1C058B0100AD2C13 /* LCDetailViewController.xib in Resources */,
 				89FCD4BD1BFEBEC90000C051 /* LCCityViewController.xib in Resources */,
 				89EEEE601BFDB3BF00137117 /* LCMainViewController.xib in Resources */,
-				89EEEE771BFDC20400137117 /* LCDistrictViewController.xib in Resources */,
 				89CEAAAF1C0409B10098AB14 /* LCPersonalTableHeaderView.xib in Resources */,
 				89EEEEBB1BFDCE7600137117 /* sorts.plist in Resources */,
 				89EA8B531BFF133E003D21F5 /* LCMainTableViewCell.xib in Resources */,
@@ -1159,6 +1160,7 @@
 				890E31861BFC70B90096CC89 /* UIImage+GIF.m in Sources */,
 				890E318B1BFC70B90096CC89 /* UIView+WebCacheOperation.m in Sources */,
 				890E31101BFC70A40096CC89 /* MJRefreshConst.m in Sources */,
+				89821E511C06BA4200157526 /* LCCollectViewController.m in Sources */,
 				890E317E1BFC70B90096CC89 /* SDImageCache.m in Sources */,
 				89CEAAB51C04393F0098AB14 /* LCMoreViewController.m in Sources */,
 				89CEAADE1C0444860098AB14 /* LCTool.m in Sources */,

@@ -21,11 +21,12 @@
 #import "UIView+Extension.h"
 #import "LCDetailViewController.h"
 #import "LCMapViewController.h"
+#import "LCCityViewController.h"
 
 @interface LCMainViewController ()<UITableViewDataSource,UITableViewDelegate, DPRequestDelegate>
 
 @property (weak, nonatomic)  LCHomeTopItem *categoryTopItem;
-@property (weak, nonatomic)  LCHomeTopItem *districtTopItem;
+@property (weak, nonatomic) LCHomeTopItem *districtTopItem;
 @property (weak, nonatomic)  LCHomeTopItem *sortTopItem;
 
 @property (nonatomic, copy) NSString *selectedCityName;
@@ -41,6 +42,7 @@
 
 @property (weak, nonatomic) UIView *noRecordView;
 @property (weak, nonatomic) UIView *sortBGView;
+@property (weak, nonatomic) UIButton *cityButton;
 
 @property (nonatomic, weak) DPRequest *lastRequest;
 
@@ -71,6 +73,22 @@
 
 - (void)setupSubViews
 {
+  
+    if ([[userDefaults objectForKey:kUDCityNameKey] length] > 0) {
+        self.selectedCityName = [userDefaults objectForKey:kUDCityNameKey];
+    }
+    UIButton *cityButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    cityButton.frame = CGRectMake(15, 0, 80, CGRectGetHeight(self.customNavigationBar.frame));
+    [cityButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    [cityButton.titleLabel setFont:[UIFont systemFontOfSize:14]];
+    NSString *selectedCityName = [userDefaults objectForKey:kUDCityNameKey];
+    NSString *buttonText = selectedCityName.length > 0 ? selectedCityName : @"请选择城市";
+    cityButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [cityButton setTitle:buttonText forState:UIControlStateNormal];
+    [cityButton addTarget:self action:@selector(cityButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.customNavigationBar addSubview:cityButton];
+    _cityButton = cityButton;
+    
     UIButton *mapButton = [UIButton buttonWithType:UIButtonTypeCustom];
     mapButton.frame = CGRectMake(SCREEN_WIDTH - 70, 0, 50, CGRectGetHeight(self.customNavigationBar.frame));
     [mapButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
@@ -83,24 +101,25 @@
     //类别
     CGFloat itemWith = CGRectGetWidth(self.view.frame)/3.0;
     _categoryTopItem = [LCHomeTopItem item];
-    _categoryTopItem.frame = CGRectMake(0, 0, itemWith, 34);
+    _categoryTopItem.frame = CGRectMake(0, 0, itemWith, 35);
     [_categoryTopItem setTitle:@"全部分类"];
     [_categoryTopItem setIcon:@"icon_category_-1" highlightIcon:@"icon_category_highlighted_-1"];
     [_categoryTopItem addTarget:self action:@selector(categoryClick)];
     [_headView addSubview:_categoryTopItem];
     
     //地区
-    _districtTopItem = [LCHomeTopItem item];
-    _districtTopItem.frame = CGRectMake(itemWith, 0, itemWith, 34);
-    [_districtTopItem setTitle:@"城市"];
-    [_districtTopItem addTarget:self action:@selector(districtClick)];
-    [_headView addSubview:_districtTopItem];
-    
+    LCHomeTopItem *districtTopItem = [LCHomeTopItem item];
+    districtTopItem.frame = CGRectMake(itemWith, 0, itemWith, 35);
+    [districtTopItem setIcon:@"icon_map" highlightIcon:@"icon_map_highlighted"];
+    [districtTopItem setTitle:@"全城"];
+    [districtTopItem addTarget:self action:@selector(districtClick)];
+    [_headView addSubview:districtTopItem];
+    _districtTopItem = districtTopItem;
+  
     //排序方式
     _sortTopItem = [LCHomeTopItem item];
-    _sortTopItem.frame = CGRectMake(itemWith * 2, 0, itemWith, 34);
-    [_sortTopItem setTitle:@"排序"];
-    [_sortTopItem setSubtitle:@"默认排序"];
+    _sortTopItem.frame = CGRectMake(itemWith * 2, 0, itemWith, 35);
+    [_sortTopItem setTitle:@"智能排序"];
     [_sortTopItem setIcon:@"icon_sort" highlightIcon:@"icon_sort_highlighted"];
     [_sortTopItem addTarget:self action:@selector(sortClick)];
     [_headView addSubview:_sortTopItem];
@@ -111,6 +130,7 @@
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.5)];
     [self.tableView addFooterWithTarget:self action:@selector(loadMoreDeals)];
     [self.tableView addHeaderWithTarget:self action:@selector(loadNewDeals)];
+    [self.tableView headerBeginRefreshing];
     
     UIView *noRecordView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_headView.frame), SCREEN_WIDTH, CGRectGetHeight(self.tableView.frame))];
     noRecordView.backgroundColor = [UIColor colorWithRed:231/255.0 green:231/255.0 blue:231/255.0 alpha:1];
@@ -170,6 +190,9 @@
         districtVc.regions = city.regions;
         districtVc.navName = self.selectedCityName;
         
+    }else{
+        [SVProgressHUD showErrorWithStatus:@"请先选择城市"];
+        return;
     }
     [self pushViewController:districtVc animated:YES];
     
@@ -177,6 +200,10 @@
 //显示排序方式
 - (void)sortClick
 {
+    if (_sortBGView) {
+        [_sortBGView removeFromSuperview];
+        return;
+    }
     UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_districtTopItem.frame), CGRectGetMaxY(_headView.frame), CGRectGetWidth(_sortTopItem.frame), SCREEN_HEIGHT - CGRectGetHeight(_headView.frame)- 108)];
     bgView.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.8];
     [self.view addSubview:bgView];
@@ -215,17 +242,15 @@
     LCCategory *category = noti.userInfo[LCCategorySelectKey];
     NSString *subcategoryName = noti.userInfo[LCSubCategorySelectKey];
     
-    //改变顶部文字
-    [_categoryTopItem setIcon:category.icon highlightIcon:category.highlighted_icon];
-    [_categoryTopItem setTitle:category.name];
-    [_categoryTopItem setSubtitle:subcategoryName];
     
     if (subcategoryName == nil ||[subcategoryName isEqualToString:@"全部"]) {//点击了没有子分类的类别
         self.selectedCategoryName = category.name;
     }else{
         self.selectedCategoryName = subcategoryName;
     }
-    
+    //改变顶部文字
+    [_categoryTopItem setIcon:category.icon highlightIcon:category.highlighted_icon];
+    [_categoryTopItem setTitle:self.selectedCategoryName];
     
     if ([self.selectedCategoryName isEqualToString:@"全部分类"]) {
         self.selectedCategoryName = nil;
@@ -233,18 +258,21 @@
     [self.tableView headerBeginRefreshing];
 
 }
+- (void)cityButtonAction:(UIButton *)button
+{
+    LCCityViewController *cityVc = [[LCCityViewController alloc] init];
+    [self pushViewController:cityVc animated:YES];
+}
 
 - (void)cityChange:(NSNotification *)noti
 {
     self.selectedCityName = noti.userInfo[LCCitySelectCityKey];
     
-    //保存一下，下个界面用
-    LCUserInfo *userInfo = [LCUserInfo sharedLCUserInfo];
-    userInfo.selectedCityName = self.selectedCityName;
+    //保存一下，下次进入界面用
+    [userDefaults setObject:self.selectedCityName forKey:kUDCityNameKey];
     
     // 1更换区域item的文字
-    [_districtTopItem setTitle:[NSString stringWithFormat:@"%@",_selectedCityName]];
-    [_districtTopItem setSubtitle:nil];
+    [_cityButton setTitle:self.selectedCityName forState:UIControlStateNormal];
     [self.tableView headerBeginRefreshing];
 }
 
@@ -253,9 +281,8 @@
     LCRegion *region = noti.userInfo[LCRegionSelectKey];
     NSString *subRegionName = noti.userInfo[LCSubRegionSelectKey];
     
-    //改变顶部文字
-    [_districtTopItem setTitle:[NSString stringWithFormat:@"%@ - %@",self.selectedCityName,region.name]];
-    [_districtTopItem setSubtitle:subRegionName];
+   
+
     if (subRegionName == nil ||[subRegionName isEqualToString:@"全部"]) {
         self.selectedRegionName = region.name;
     }else{
@@ -264,6 +291,9 @@
     if ([self.selectedRegionName isEqualToString:@"全部"]) {
         self.selectedRegionName = nil;
     }
+     //改变顶部文字
+    [_districtTopItem setTitle:self.selectedRegionName];
+    [self.tableView headerBeginRefreshing];
     
 }
 
@@ -271,7 +301,7 @@
 {
     NSLog(@"%d点击了： %@",button.sort.value,button.sort.label);
     [button.superview removeFromSuperview];
-    [_sortTopItem setSubtitle:button.sort.label];
+    [_sortTopItem setTitle:button.sort.label];
     self.selectedSort = button.sort;
     [self.tableView headerBeginRefreshing];
 }
@@ -302,6 +332,8 @@
     if (self.selectedSort) {
         params[@"sort"] = @(self.selectedSort.value);
     }
+    
+    NSLog(@"首页请求参数---->>>>>>%@",params);
     self.lastRequest = [api requestWithURL:urlString params:params delegate:self];
 }
 
@@ -396,7 +428,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [LCNotifiCationCenter removeObserver:self name:LCCategoryDidChangeNotification object:nil];
+   // [LCNotifiCationCenter removeObserver:self name:LCCategoryDidChangeNotification object:nil];
     [_sortBGView removeFromSuperview];
 }
 

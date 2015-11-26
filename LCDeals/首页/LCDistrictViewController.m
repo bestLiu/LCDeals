@@ -13,7 +13,6 @@
 #import "LCRegion.h"
 
 @interface LCDistrictViewController ()<LCHomeDropViewDataSource, LCHomeDropViewDelegate>
-- (IBAction)changeCity;
 
 @end
 
@@ -24,7 +23,7 @@
     
     self.navigationTitle = self.navName?self.navName:@"选择城市";
     //创建下拉菜单
-    LCHomeDropView *dropView = [[LCHomeDropView alloc] initWithFrame:CGRectMake(0, 108, SCREEN_WIDTH, SCREEN_HEIGHT -108)];
+    LCHomeDropView *dropView = [[LCHomeDropView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT -108)];
     dropView.dataSource = self;
     dropView.delegate = self;
     [self.view addSubview:dropView];
@@ -68,12 +67,4 @@
 }
 
 
-
-/**
- *  切换城市
- */
-- (IBAction)changeCity {
-    LCCityViewController *cityVc = [[LCCityViewController alloc] init];
-    [self pushViewController:cityVc animated:YES];
-}
 @end

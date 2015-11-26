@@ -19,7 +19,6 @@
 
 
 - (void)setTitle:(NSString *)title;
-- (void)setSubtitle:(NSString *)subtitle;
 - (void)setIcon:(NSString *)icon highlightIcon:(NSString *)highlightIcon;
 
 @end
