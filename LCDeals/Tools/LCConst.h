@@ -9,6 +9,7 @@
 #define kNetworkErrorMsg              @"网络错误，请稍后再试"
 
 #define kUDCityNameKey              @"selectedCityName"
+#define kUserInfoKey                @"userInfo"
 
 //屏幕宽度
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)

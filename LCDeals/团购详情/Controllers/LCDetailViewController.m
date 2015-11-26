@@ -7,6 +7,7 @@
 //
 
 #import "LCDetailViewController.h"
+#import "LCDealTool.h"
 
 @interface LCDetailViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -19,9 +20,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationTitle = @"详情";
+    [self setupLoadView];
+}
+
+- (void)setupLoadView
+{
+    UIButton *collectButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    collectButton.frame = CGRectMake(SCREEN_WIDTH - 60, -8 , 60, 60);
+    [collectButton setImage:[UIImage imageNamed:@"icon_collect"] forState:UIControlStateNormal];
+    [collectButton setImage:[UIImage imageNamed:@"icon_collect_highlighted"] forState:UIControlStateSelected];
+    [collectButton addTarget:self action:@selector(collectButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.customNavigationBar addSubview:collectButton];
+    collectButton.selected = [LCDealTool isCollect:self.deal];
+    
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.deal.deal_h5_url]]];
     NSLog(@"%@",self.deal.deal_h5_url);
     [SVProgressHUD showWithStatus:@"请稍候..." maskType:SVProgressHUDMaskTypeClear];
+
 }
 
 #pragma mark - UIWebViewDelegate
@@ -73,8 +88,24 @@
     [_puchaseButton setBackgroundImage:[LCTool imageWithColor:[UIColor grayColor] andSize:_puchaseButton.frame.size] forState:UIControlStateHighlighted];
 }
 
-- (IBAction)buttonClick:(id)sender {
+//收藏团购
+- (void)collectButtonAction:(UIButton *)button
+{
+    if (button.isSelected) { // 取消收藏
+        [LCDealTool removeCollect:self.deal];
+        [SVProgressHUD showSuccessWithStatus:@"取消收藏成功"];
+
+    } else { // 收藏
+        [LCDealTool addCollect:self.deal];
+        [SVProgressHUD showSuccessWithStatus:@"收藏成功"];
+    }
     
+    // 按钮的选中取反
+    button.selected = !button.isSelected;
+    
+}
+
+- (IBAction)buttonClick:(id)sender {
     //立即购买 集成支付宝，购买界面
     
 }

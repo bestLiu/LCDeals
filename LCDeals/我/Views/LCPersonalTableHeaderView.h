@@ -10,6 +10,8 @@
 
 @interface LCPersonalTableHeaderView : UIView
 @property (weak, nonatomic) IBOutlet UIButton *headButton;
+@property (weak, nonatomic) IBOutlet UILabel *nickNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 
 + (instancetype)headerView;
 

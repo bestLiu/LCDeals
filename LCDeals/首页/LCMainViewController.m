@@ -270,6 +270,7 @@
     
     //保存一下，下次进入界面用
     [userDefaults setObject:self.selectedCityName forKey:kUDCityNameKey];
+    [userDefaults synchronize];
     
     // 1更换区域item的文字
     [_cityButton setTitle:self.selectedCityName forState:UIControlStateNormal];

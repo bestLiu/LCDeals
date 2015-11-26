@@ -9,12 +9,16 @@
 #import "LCPersonalViewController.h"
 #import "LCPersonalTableViewCell.h"
 #import "LCPersonalTableHeaderView.h"
+#import "LCCollectViewController.h"
+#import "LCPersonalInfoViewController.h"
 
 
-@interface LCPersonalViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface LCPersonalViewController ()<UITableViewDataSource, UITableViewDelegate, LCPersonalInfoViewControllerdDelegete>
 
 @property (strong, nonatomic) NSArray *dataArray;
 @property (weak, nonatomic) UITableView *tableView;
+
+@property (weak, nonatomic) LCPersonalTableHeaderView *headView;
 
 @end
 
@@ -49,6 +53,13 @@ static NSString *const reuseIdentifier = @"personalCell";
 {
     LCPersonalTableHeaderView *headerView = [LCPersonalTableHeaderView headerView];
     headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 150);
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headerViewAcion)];
+    NSDictionary *info = [userDefaults objectForKey:kUserInfoKey];
+    [headerView.headButton setBackgroundImage:[UIImage imageWithData:info[@"headImage"]] forState:UIControlStateNormal];
+    headerView.nickNameLabel.text = info[@"nickName"];
+    headerView.addressLabel.text = [NSString stringWithFormat:@"常居地：%@",info[@"address"]];
+    [headerView addGestureRecognizer:tap];
+    _headView = headerView;
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT - 64) style:UITableViewStyleGrouped];
     tableView.delegate = self;
@@ -84,7 +95,43 @@ static NSString *const reuseIdentifier = @"personalCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    switch (indexPath.section) {
+        case 2:
+        {
+            switch (indexPath.row) {
+                case 0:
+                {
+                    //我的收藏
+                    LCCollectViewController *collectVC = [[LCCollectViewController alloc] init];
+                    [self pushViewController:collectVC animated:YES];
+                    
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)headerViewAcion
+{
+    LCPersonalInfoViewController *infoVC = [[LCPersonalInfoViewController alloc] init];
+    infoVC.delegte = self;
+    [self pushViewController:infoVC animated:YES];
+}
+
+- (void)updatePersonalInfoComplition:(NSDictionary *)info
+{
+    [_headView.headButton setBackgroundImage:[UIImage imageWithData:info[@"headImage"]] forState:UIControlStateNormal];
+    _headView.nickNameLabel.text = info[@"nickName"];
+    _headView.addressLabel.text = [NSString stringWithFormat:@"常居地：%@",info[@"address"]];
+    
 }
 
 @end
-;

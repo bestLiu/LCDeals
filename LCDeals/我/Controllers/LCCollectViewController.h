@@ -6,8 +6,8 @@
 //  Copyright © 2015年 BNDK. All rights reserved.
 //
 
-#import "LCMainViewController.h"
+#import "LCBaseViewController.h"
 
-@interface LCCollectViewController : LCMainViewController
+@interface LCCollectViewController : LCBaseViewController
 
 @end

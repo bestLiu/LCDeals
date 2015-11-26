@@ -62,6 +62,14 @@
 		890E358C1BFC71AA0096CC89 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 890E358B1BFC71AA0096CC89 /* libsqlite3.tbd */; };
 		890E358E1BFC71F50096CC89 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 890E358D1BFC71F50096CC89 /* libz.tbd */; };
 		89821E511C06BA4200157526 /* LCCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89821E501C06BA4200157526 /* LCCollectViewController.m */; };
+		89821E541C06D7B400157526 /* LCDealTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 89821E531C06D7B400157526 /* LCDealTool.m */; };
+		89821E611C06D7F100157526 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 89821E571C06D7F100157526 /* FMDatabase.m */; };
+		89821E621C06D7F100157526 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 89821E591C06D7F100157526 /* FMDatabaseAdditions.m */; };
+		89821E631C06D7F100157526 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 89821E5B1C06D7F100157526 /* FMDatabasePool.m */; };
+		89821E641C06D7F100157526 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 89821E5D1C06D7F100157526 /* FMDatabaseQueue.m */; };
+		89821E651C06D7F100157526 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 89821E601C06D7F100157526 /* FMResultSet.m */; };
+		89821E691C06F1E100157526 /* LCPersonalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89821E671C06F1E100157526 /* LCPersonalInfoViewController.m */; };
+		89821E6A1C06F1E100157526 /* LCPersonalInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89821E681C06F1E100157526 /* LCPersonalInfoViewController.xib */; };
 		89ABE29C1C02BC73002AE569 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 89ABE2971C02BC73002AE569 /* SVProgressHUD.bundle */; };
 		89ABE29D1C02BC73002AE569 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 89ABE2991C02BC73002AE569 /* SVProgressHUD.m */; };
 		89ABE2A71C031A03002AE569 /* LCPersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89ABE2A41C031A03002AE569 /* LCPersonalViewController.m */; };
@@ -261,6 +269,22 @@
 		890E358D1BFC71F50096CC89 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		89821E4F1C06BA4200157526 /* LCCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCCollectViewController.h; sourceTree = "<group>"; };
 		89821E501C06BA4200157526 /* LCCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCCollectViewController.m; sourceTree = "<group>"; };
+		89821E521C06D7B400157526 /* LCDealTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCDealTool.h; sourceTree = "<group>"; };
+		89821E531C06D7B400157526 /* LCDealTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCDealTool.m; sourceTree = "<group>"; };
+		89821E561C06D7F100157526 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		89821E571C06D7F100157526 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		89821E581C06D7F100157526 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		89821E591C06D7F100157526 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		89821E5A1C06D7F100157526 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		89821E5B1C06D7F100157526 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		89821E5C1C06D7F100157526 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		89821E5D1C06D7F100157526 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		89821E5E1C06D7F100157526 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		89821E5F1C06D7F100157526 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		89821E601C06D7F100157526 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		89821E661C06F1E100157526 /* LCPersonalInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCPersonalInfoViewController.h; sourceTree = "<group>"; };
+		89821E671C06F1E100157526 /* LCPersonalInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCPersonalInfoViewController.m; sourceTree = "<group>"; };
+		89821E681C06F1E100157526 /* LCPersonalInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCPersonalInfoViewController.xib; sourceTree = "<group>"; };
 		89ABE2971C02BC73002AE569 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		89ABE2981C02BC73002AE569 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		89ABE2991C02BC73002AE569 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
@@ -545,6 +569,7 @@
 		890E305D1BFC70510096CC89 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				89821E551C06D7F100157526 /* fmdb */,
 				89EEEE341BFDA49D00137117 /* Masonry */,
 				890E315A1BFC70B90096CC89 /* SDWebImage */,
 				890E312E1BFC70B10096CC89 /* MJExtension */,
@@ -694,6 +719,24 @@
 			name = Framework;
 			sourceTree = "<group>";
 		};
+		89821E551C06D7F100157526 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				89821E561C06D7F100157526 /* FMDatabase.h */,
+				89821E571C06D7F100157526 /* FMDatabase.m */,
+				89821E581C06D7F100157526 /* FMDatabaseAdditions.h */,
+				89821E591C06D7F100157526 /* FMDatabaseAdditions.m */,
+				89821E5A1C06D7F100157526 /* FMDatabasePool.h */,
+				89821E5B1C06D7F100157526 /* FMDatabasePool.m */,
+				89821E5C1C06D7F100157526 /* FMDatabaseQueue.h */,
+				89821E5D1C06D7F100157526 /* FMDatabaseQueue.m */,
+				89821E5E1C06D7F100157526 /* FMDB.h */,
+				89821E5F1C06D7F100157526 /* FMResultSet.h */,
+				89821E601C06D7F100157526 /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
 		89ABE2931C02BC73002AE569 /* SVProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -719,6 +762,9 @@
 				89ABE2A41C031A03002AE569 /* LCPersonalViewController.m */,
 				89821E4F1C06BA4200157526 /* LCCollectViewController.h */,
 				89821E501C06BA4200157526 /* LCCollectViewController.m */,
+				89821E661C06F1E100157526 /* LCPersonalInfoViewController.h */,
+				89821E671C06F1E100157526 /* LCPersonalInfoViewController.m */,
+				89821E681C06F1E100157526 /* LCPersonalInfoViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -797,6 +843,8 @@
 		89CEAAD71C0444860098AB14 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				89821E521C06D7B400157526 /* LCDealTool.h */,
+				89821E531C06D7B400157526 /* LCDealTool.m */,
 				89CEAAD81C0444860098AB14 /* LCConst.h */,
 				89CEAAD91C0444860098AB14 /* LCConst.m */,
 				89CEAADA1C0444860098AB14 /* LCTool.h */,
@@ -1095,6 +1143,7 @@
 				89EEEE601BFDB3BF00137117 /* LCMainViewController.xib in Resources */,
 				89CEAAAF1C0409B10098AB14 /* LCPersonalTableHeaderView.xib in Resources */,
 				89EEEEBB1BFDCE7600137117 /* sorts.plist in Resources */,
+				89821E6A1C06F1E100157526 /* LCPersonalInfoViewController.xib in Resources */,
 				89EA8B531BFF133E003D21F5 /* LCMainTableViewCell.xib in Resources */,
 				890E2FF61BFC4BCA0096CC89 /* Assets.xcassets in Resources */,
 				89EEEE5E1BFDAE8200137117 /* LCHomeTopItem.xib in Resources */,
@@ -1139,8 +1188,10 @@
 				890E31831BFC70B90096CC89 /* SDWebImageManager.m in Sources */,
 				890E30641BFC707C0096CC89 /* DPAPI.m in Sources */,
 				890E31521BFC70B10096CC89 /* MJIvar.m in Sources */,
+				89821E691C06F1E100157526 /* LCPersonalInfoViewController.m in Sources */,
 				890E303E1BFC6DFF0096CC89 /* LCDiscoverViewController.m in Sources */,
 				890E31851BFC70B90096CC89 /* UIButton+WebCache.m in Sources */,
+				89821E651C06D7F100157526 /* FMResultSet.m in Sources */,
 				890E31801BFC70B90096CC89 /* SDWebImageDecoder.m in Sources */,
 				89ABE29D1C02BC73002AE569 /* SVProgressHUD.m in Sources */,
 				890E310F1BFC70A40096CC89 /* MJRefreshBaseView.m in Sources */,
@@ -1158,6 +1209,7 @@
 				890E31571BFC70B10096CC89 /* NSObject+MJCoding.m in Sources */,
 				89CEAACE1C04447D0098AB14 /* LCBusiness.m in Sources */,
 				890E31861BFC70B90096CC89 /* UIImage+GIF.m in Sources */,
+				89821E541C06D7B400157526 /* LCDealTool.m in Sources */,
 				890E318B1BFC70B90096CC89 /* UIView+WebCacheOperation.m in Sources */,
 				890E31101BFC70A40096CC89 /* MJRefreshConst.m in Sources */,
 				89821E511C06BA4200157526 /* LCCollectViewController.m in Sources */,
@@ -1196,6 +1248,7 @@
 				89EEEE561BFDA49D00137117 /* NSArray+MASAdditions.m in Sources */,
 				89EEEE581BFDA49D00137117 /* View+MASAdditions.m in Sources */,
 				890E317D1BFC70B90096CC89 /* NSData+ImageContentType.m in Sources */,
+				89821E641C06D7F100157526 /* FMDatabaseQueue.m in Sources */,
 				89CEAAD01C04447D0098AB14 /* LCCity.m in Sources */,
 				890E31821BFC70B90096CC89 /* SDWebImageDownloaderOperation.m in Sources */,
 				890E2FEE1BFC4BCA0096CC89 /* AppDelegate.m in Sources */,
@@ -1206,9 +1259,12 @@
 				890E318A1BFC70B90096CC89 /* UIImageView+WebCache.m in Sources */,
 				89CEAAD31C04447D0098AB14 /* LCRegion.m in Sources */,
 				890E30BE1BFC70810096CC89 /* UIImage+WF.m in Sources */,
+				89821E611C06D7F100157526 /* FMDatabase.m in Sources */,
 				890E317F1BFC70B90096CC89 /* SDWebImageCompat.m in Sources */,
 				89CEAAD11C04447D0098AB14 /* LCCityGroup.m in Sources */,
 				890E30BF1BFC70810096CC89 /* UIScreen+WF.m in Sources */,
+				89821E631C06D7F100157526 /* FMDatabasePool.m in Sources */,
+				89821E621C06D7F100157526 /* FMDatabaseAdditions.m in Sources */,
 				890E2FEB1BFC4BCA0096CC89 /* main.m in Sources */,
 				89CEAAD51C04447D0098AB14 /* LCSort.m in Sources */,
 				890E30C11BFC70810096CC89 /* UIView+WF.m in Sources */,
