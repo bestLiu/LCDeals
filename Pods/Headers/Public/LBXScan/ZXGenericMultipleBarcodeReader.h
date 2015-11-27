@@ -1,0 +1,1 @@
+../../../LBXScan/LBXScan/LBXScanCore/LibZXing/ZXingObjC/multi/ZXGenericMultipleBarcodeReader.h

@@ -1,0 +1,1 @@
+../../../LBXScan/LBXScan/LBXScanCore/LBXScanResult.h

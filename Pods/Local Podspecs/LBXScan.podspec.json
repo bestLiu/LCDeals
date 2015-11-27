@@ -1,0 +1,46 @@
+{
+  "name": "LBXScan",
+  "version": "1.0.9",
+  "summary": "ios scan wrapper",
+  "homepage": "https://github.com/MxABC",
+  "license": "MIT",
+  "authors": {
+    "lbxia": "lbxia20091227@foxmail.com"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source": {
+    "git": "https://github.com/MxABC/LBXScan.git",
+    "commit": "1.0.9"
+  },
+  "source_files": "LBXScan/*.{h,m}",
+  "resources": "LBXScan/LBXScan+UIKit/CodeScan.bundle",
+  "requires_arc": true,
+  "prefix_header_contents": "#import <Foundation/Foundation.h>",
+  "subspecs": [
+    {
+      "name": "LBXScanCore",
+      "source_files": "LBXScan/LBXScanCore/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "LibZXing",
+          "subspecs": [
+            {
+              "name": "ZXingWrapper",
+              "source_files": "LBXScan/LBXScanCore/LibZXing/ZXingWrapper/*.{h,m}"
+            },
+            {
+              "name": "ZXingObjC",
+              "source_files": "LBXScan/LBXScanCore/LibZXing/ZXingObjC/**/*.{h,m}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LBXScan+UIKit",
+      "source_files": "LBXScan/LBXScan+UIKit/*.{h,m}"
+    }
+  ]
+}

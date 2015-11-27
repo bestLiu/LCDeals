@@ -1,0 +1,1 @@
+../../../LBXScan/LBXScan/LBXScanCore/LibZXing/ZXingObjC/pdf417/encoder/ZXPDF417ErrorCorrection.h

@@ -1,0 +1,29 @@
+PODS:
+  - LBXScan (1.0.9):
+    - LBXScan/LBXScan+UIKit (= 1.0.9)
+    - LBXScan/LBXScanCore (= 1.0.9)
+  - LBXScan/LBXScan+UIKit (1.0.9)
+  - LBXScan/LBXScanCore (1.0.9):
+    - LBXScan/LBXScanCore/LibZXing (= 1.0.9)
+  - LBXScan/LBXScanCore/LibZXing (1.0.9):
+    - LBXScan/LBXScanCore/LibZXing/ZXingObjC (= 1.0.9)
+    - LBXScan/LBXScanCore/LibZXing/ZXingWrapper (= 1.0.9)
+  - LBXScan/LBXScanCore/LibZXing/ZXingObjC (1.0.9)
+  - LBXScan/LBXScanCore/LibZXing/ZXingWrapper (1.0.9)
+
+DEPENDENCIES:
+  - LBXScan (from `https://github.com/MxABC/LBXScan.git`)
+
+EXTERNAL SOURCES:
+  LBXScan:
+    :git: https://github.com/MxABC/LBXScan.git
+
+CHECKOUT OPTIONS:
+  LBXScan:
+    :commit: d053422ac413d2dea76606d93557ba513f0efaf4
+    :git: https://github.com/MxABC/LBXScan.git
+
+SPEC CHECKSUMS:
+  LBXScan: 6e46fe2d6bf9ab484812d73ed7de30e5f410b27c
+
+COCOAPODS: 0.38.2

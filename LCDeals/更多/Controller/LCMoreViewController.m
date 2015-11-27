@@ -10,6 +10,7 @@
 
 #import "LCMoreViewController.h"
 #import "LCMoreTableViewCell.h"
+#import "LCScanViewController.h"
 
 @interface LCMoreViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -79,6 +80,32 @@ static NSString *const reuseIdentifier = @"moreCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    switch (indexPath.section) {
+        case 0:
+        {
+            //设置扫码区域参数
+            LBXScanViewStyle *style = [[LBXScanViewStyle alloc]init];
+            style.centerUpOffset = 44;
+            style.photoframeAngleStyle = LBXScanViewPhotoframeAngleStyle_Outer;
+            style.photoframeLineW = 6;
+            style.photoframeAngleW = 24;
+            style.photoframeAngleH = 24;
+            
+            style.anmiationStyle = LBXScanViewAnimationStyle_LineMove;
+            
+            //qq里面的线条图片
+            UIImage *imgLine = [UIImage imageNamed:@"CodeScan.bundle/qrcode_scan_light_green"];
+            style.animationImage = imgLine;
+            
+           LCScanViewController *scanViewController = [[LCScanViewController alloc] init];
+            scanViewController.style = style;
+            [self pushViewController:scanViewController animated:YES];
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

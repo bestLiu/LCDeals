@@ -1,0 +1,1 @@
+../../../LBXScan/LBXScan/LBXScanCore/LibZXing/ZXingObjC/qrcode/decoder/ZXQRCodeBitMatrixParser.h

@@ -1,0 +1,1 @@
+../../../LBXScan/LBXScan/LBXScan+UIKit/LBXScanView.h
