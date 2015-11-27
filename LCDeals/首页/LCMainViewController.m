@@ -429,7 +429,6 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-   // [LCNotifiCationCenter removeObserver:self name:LCCategoryDidChangeNotification object:nil];
     [_sortBGView removeFromSuperview];
 }
 

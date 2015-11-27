@@ -54,6 +54,13 @@
 {
     LCRegion *region = self.regions[row];
     if (region.subregions.count == 0) {
+        for (UIViewController *vc in self.navigationController.viewControllers) {
+            if ([vc isKindOfClass:NSClassFromString(@"LCStroeViewController")]) {
+                self.selectedRegionComplicionBlock(@{LCRegionSelectKey:region});
+                 [self.navigationController popViewControllerAnimated:YES];;
+                return;
+            }
+        }
         [LCNotifiCationCenter postNotificationName:LCRegionDidChangeNotification object:self userInfo:@{LCRegionSelectKey:region}];
         [self.navigationController popViewControllerAnimated:YES];
     }
@@ -62,6 +69,13 @@
 {
     LCRegion *region = self.regions[mainRow];
     NSString *subRegionName = region.subregions[row];
+    for (UIViewController *vc in self.navigationController.viewControllers) {
+        if ([vc isKindOfClass:NSClassFromString(@"LCStroeViewController")]) {
+            self.selectedRegionComplicionBlock(@{LCRegionSelectKey:region,LCSubRegionSelectKey:subRegionName});
+            [self.navigationController popViewControllerAnimated:YES];;
+            return;
+        }
+    }
     [LCNotifiCationCenter postNotificationName:LCRegionDidChangeNotification object:self userInfo:@{LCRegionSelectKey:region,LCSubRegionSelectKey:subRegionName}];
     [self.navigationController popViewControllerAnimated:YES];
 }

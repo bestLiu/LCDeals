@@ -11,4 +11,8 @@
 
 @interface LCCategoryViewController : LCBaseViewController
 
+
+@property (copy, nonatomic) void (^selectedCategoryComplicionBlock)(NSDictionary *categoryDic);
+
+
 @end

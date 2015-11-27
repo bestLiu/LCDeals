@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) NSArray *regions;
 
-@property (nonatomic, weak) UIPopoverController *popover;
 @property (nonatomic, copy) NSString *navName;
+
+@property (copy, nonatomic) void (^selectedRegionComplicionBlock)(NSDictionary *RegionDic);
 @end

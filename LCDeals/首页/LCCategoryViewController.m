@@ -79,6 +79,11 @@
                 [self backButtonClicked:nil];
                 return;
             }
+            if ([vc isKindOfClass:NSClassFromString(@"LCStroeViewController")]) {
+                self.selectedCategoryComplicionBlock(@{LCCategorySelectKey:category});
+                [self backButtonClicked:nil];
+                return;
+            }
         }
         [LCNotifiCationCenter postNotificationName:LCCategoryDidChangeNotification object:self userInfo:@{LCCategorySelectKey:category}];
         [self backButtonClicked:nil];
@@ -92,6 +97,11 @@
     for (UIViewController *vc in self.navigationController.viewControllers) {
         if ([vc isKindOfClass:NSClassFromString(@"LCMapViewController")]) {
             [LCNotifiCationCenter postNotificationName:LCCategoryMapDidChangeNotification object:self userInfo:@{LCCategoryMapSelectKey:category,LCSubCategoryMapSelectKey:category.subcategories[row]}];
+            [self backButtonClicked:nil];
+            return;
+        }
+        if ([vc isKindOfClass:NSClassFromString(@"LCStroeViewController")]) {
+            self.selectedCategoryComplicionBlock(@{LCCategorySelectKey:category,LCSubCategorySelectKey:category.subcategories[row]});
             [self backButtonClicked:nil];
             return;
         }

@@ -9,11 +9,13 @@
 #import "LCPersonalInfoViewController.h"
 
 @interface LCPersonalInfoViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *headButton;
 @property (weak, nonatomic) IBOutlet UITextField *nickNameTF;
 @property (weak, nonatomic) IBOutlet UITextField *addressTF;
 @property (weak, nonatomic) IBOutlet UITextField *emailTF;
 @property (weak, nonatomic) IBOutlet UITextField *telTF;
+@property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 
 @end
 
@@ -22,12 +24,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationTitle = @"个人信息";
-    _headButton.backgroundColor = [UIColor lightGrayColor];
+    
     [self setupDefaultData];
 }
 
 - (void)setupDefaultData
 {
+//    _headButton.backgroundColor = [UIColor lightGrayColor];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(textFieldShouldReturn:)];
+    [_scrollView addGestureRecognizer:tap];
+    _confirmButton.layer.cornerRadius = 4;
+    _confirmButton.layer.masksToBounds = YES;
+    [_confirmButton setBackgroundImage:[LCTool imageWithColor:[UIColor orangeColor] andSize:_confirmButton.frame.size] forState:UIControlStateNormal];
    NSDictionary *userInfo = [userDefaults objectForKey:kUserInfoKey];
     _nickNameTF.text = userInfo[@"nickName"];
     _addressTF.text = userInfo[@"address"];
@@ -62,14 +70,23 @@
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
+    if (textField == _emailTF) {
+        [UIView animateWithDuration:.3 animations:^{
+            [_scrollView setContentOffset:CGPointMake(0, 150)];
+        }];
+    }else{
+        [UIView animateWithDuration:.3 animations:^{
+            [_scrollView setContentOffset:CGPointMake(0, 200)];
+        }];
+    }
     return YES;
 }
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
-{
-    return YES;
-}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    [UIView animateWithDuration:.3 animations:^{
+        [_scrollView setContentOffset:CGPointZero];
+    }];
     [self.view endEditing:YES];
     return YES;
 }
