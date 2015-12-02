@@ -10,9 +10,11 @@ PODS:
     - LBXScan/LBXScanCore/LibZXing/ZXingWrapper (= 1.0.9)
   - LBXScan/LBXScanCore/LibZXing/ZXingObjC (1.0.9)
   - LBXScan/LBXScanCore/LibZXing/ZXingWrapper (1.0.9)
+  - UMengFeedback (2.3.3)
 
 DEPENDENCIES:
   - LBXScan (from `https://github.com/MxABC/LBXScan.git`)
+  - UMengFeedback (~> 2.3.3)
 
 EXTERNAL SOURCES:
   LBXScan:
@@ -20,10 +22,11 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   LBXScan:
-    :commit: d053422ac413d2dea76606d93557ba513f0efaf4
+    :commit: 1229917e90c3638bd0cf68d300e26a9448de550e
     :git: https://github.com/MxABC/LBXScan.git
 
 SPEC CHECKSUMS:
-  LBXScan: 6e46fe2d6bf9ab484812d73ed7de30e5f410b27c
+  LBXScan: 9be477fca952383a10524f128b286ccb0c12f015
+  UMengFeedback: 6dd19dc88d310c317023aa495d10671b1c112531
 
 COCOAPODS: 0.38.2

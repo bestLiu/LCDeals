@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LCTabBarController.h"
+#import "UMFeedback.h"
 
 @interface AppDelegate ()
 
@@ -18,8 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-
-    
+    [UMFeedback setAppkey:@"560b44a5e0f55a5eaa00297e"];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [[LCTabBarController alloc] init];
     

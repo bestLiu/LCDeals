@@ -11,6 +11,7 @@
 #import "LCMoreViewController.h"
 #import "LCMoreTableViewCell.h"
 #import "LCScanViewController.h"
+#import "UMFeedback.h"
 
 @interface LCMoreViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -100,6 +101,31 @@ static NSString *const reuseIdentifier = @"moreCell";
            LCScanViewController *scanViewController = [[LCScanViewController alloc] init];
             scanViewController.style = style;
             [self pushViewController:scanViewController animated:YES];
+        }
+            break;
+        case 1:
+        {
+            
+        }
+            break;
+        case 2:
+        {
+            switch (indexPath.row) {
+                case 0:
+                {
+                    [self.navigationController setNavigationBarHidden:NO animated:NO];
+                    [self pushViewController:[UMFeedback feedbackViewController] animated:YES];
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+            break;
+        case 3:
+        {
+            
         }
             break;
             
