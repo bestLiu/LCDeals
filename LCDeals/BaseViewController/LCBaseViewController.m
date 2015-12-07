@@ -31,6 +31,7 @@
 - (BOOL)prefersStatusBarHidden
 {
     return NO;
+    
 }
 
 - (void)initialize
@@ -88,8 +89,6 @@
     [_backButton setImage:[UIImage imageNamed:@"Main_Back_btn_select"] forState:UIControlStateHighlighted];
     [_backButton setImageEdgeInsets:UIEdgeInsetsMake(0.0, -13.0, 0.0, 0.0)];
     [_customNavigationBar addSubview:_backButton];
-
-
     
 }
 

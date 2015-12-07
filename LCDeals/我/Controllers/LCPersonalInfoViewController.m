@@ -110,7 +110,7 @@
     if (![_telTF.text isEqualToString:userInfo[@"tel"]]) {
         [userInfo setObject:_telTF.text forKey:@"tel"];
     }
-    if (![UIImagePNGRepresentation(_headButton.currentBackgroundImage) isEqualToData:userInfo[@"headImage"]]) {
+    if (![UIImagePNGRepresentation(_headButton.currentBackgroundImage) isEqualToData:userInfo[@"headImage"]] && _headButton.currentBackgroundImage) {
         [userInfo setObject:UIImagePNGRepresentation(_headButton.currentBackgroundImage) forKey:@"headImage"];
     }
     [userDefaults setObject:userInfo forKey:kUserInfoKey];
