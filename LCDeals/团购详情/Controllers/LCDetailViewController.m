@@ -8,6 +8,8 @@
 
 #import "LCDetailViewController.h"
 #import "LCDealTool.h"
+#import "UMSocial.h"
+#import "UIImageView+WebCache.h"
 
 @interface LCDetailViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -32,6 +34,14 @@
     [collectButton addTarget:self action:@selector(collectButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.customNavigationBar addSubview:collectButton];
     collectButton.selected = [LCDealTool isCollect:self.deal];
+    
+    UIButton *sharedButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    sharedButton.frame = CGRectMake(CGRectGetMinX(collectButton.frame) - 40, -8, 60, 60);
+    [sharedButton setImage:[UIImage imageNamed:@"icon_share"] forState:UIControlStateNormal];
+    [sharedButton setImage:[UIImage imageNamed:@"icon_share_highlighted"] forState:UIControlStateHighlighted];
+    [sharedButton addTarget:self action:@selector(sharedButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.customNavigationBar addSubview:sharedButton];
+    
     
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.deal.deal_h5_url]]];
     NSLog(@"%@",self.deal.deal_h5_url);
@@ -104,6 +114,19 @@
     button.selected = !button.isSelected;
     
 }
+- (void)sharedButtonAction:(UIButton *)button
+{
+     // TODO 集成友盟分享
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_deal.image_url]];
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                             appKey:@"566786b7e0f55a0f5200207a"
+                                          shareText:_deal.desc
+                                     shareImage:[UIImage imageWithData:imageData]
+                                    shareToSnsNames:@[UMShareToSina,UMShareToTencent,UMShareToWechatSession,UMShareToQzone,UMShareToQQ,UMShareToRenren,UMShareToDouban,UMShareToEmail,UMShareToSms,UMShareToFacebook,UMShareToTwitter]
+                                           delegate:nil];
+
+}
+
 
 - (IBAction)buttonClick:(id)sender {
     //立即购买 集成支付宝，购买界面

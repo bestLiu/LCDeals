@@ -94,7 +94,7 @@ static NSString *const reuseIdentifier = @"stroeCell";
     [headView addSubview:_sortTopItem];
 
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 99, SCREEN_WIDTH, SCREEN_HEIGHT - 99) style:UITableViewStyleGrouped];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 99, SCREEN_WIDTH, SCREEN_HEIGHT - 99 - 49) style:UITableViewStyleGrouped];
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.rowHeight = 100;

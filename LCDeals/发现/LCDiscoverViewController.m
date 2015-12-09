@@ -81,7 +81,7 @@ static NSString *const reuseIdentifier = @"mainCell";
     [self.view addSubview:searchBar];
     _searchBar = searchBar;
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(searchBar.frame), SCREEN_WIDTH, SCREEN_HEIGHT - CGRectGetMaxY(searchBar.frame)) style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(searchBar.frame), SCREEN_WIDTH, SCREEN_HEIGHT - CGRectGetMaxY(searchBar.frame) - 49) style:UITableViewStylePlain];
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;

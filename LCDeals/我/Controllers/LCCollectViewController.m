@@ -12,6 +12,7 @@
 #import "Masonry.h"
 #import "LCDetailViewController.h"
 #import "UMSocial.h"
+#import "UIImageView+WebCache.h"
 
 
 @interface LCCollectViewController ()<UITableViewDataSource, UITableViewDelegate,UMSocialUIDelegate>
@@ -103,16 +104,17 @@ static NSString *const reuseIdentifier = @"mainCell";
 - (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     __weak typeof(self) weakSelf = self;
+    LCDeal *deal = self.deals[indexPath.row];
+    UIImageView *imageView = [[UIImageView alloc] init];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:deal.image_url]];
     UITableViewRowAction *action1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"分享" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
 // TODO 集成友盟分享
         [UMSocialSnsService presentSnsIconSheetView:self
     appKey:@"566786b7e0f55a0f5200207a"
-    shareText:@"你要分享的文字"
-    shareImage:[UIImage imageNamed:@"icon.png"]
-    shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToWechatSession,UMShareToQQ,UMShareToYXSession,UMShareToWechatTimeline,UMShareToWechatSession,UMShareToQzone,UMShareToTencent,nil]
+    shareText:deal.desc
+    shareImage:imageView.image
+    shareToSnsNames:@[UMShareToSina,UMShareToTencent,UMShareToWechatSession,UMShareToQzone,UMShareToQQ,UMShareToRenren,UMShareToDouban,UMShareToEmail,UMShareToSms,UMShareToFacebook,UMShareToTwitter]
     delegate:self];
-        
-        _tableView.editing = NO;
     }];
     UITableViewRowAction *action2 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
        //找到对应的团购信息

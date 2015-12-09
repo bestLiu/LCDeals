@@ -22,7 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [UMFeedback setAppkey:@"566786b7e0f55a0f5200207a"];
-    [UMSocialSinaHandler openSSOWithRedirectURL:@"https://www.baidu.com"];
+    [UMSocialSinaHandler openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
     
     [UMSocialData setAppKey:@"566786b7e0f55a0f5200207a"];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
