@@ -165,6 +165,9 @@
     
     //监听区域改变
     [LCNotifiCationCenter addObserver:self selector:@selector(regionChange:) name:LCRegionDidChangeNotification object:nil];
+    
+    //监听退出当前账号
+    [LCNotifiCationCenter addObserver:self selector:@selector(exit) name:LCMoreViewControllerExitSucceed object:nil];
 }
 
 
@@ -307,6 +310,11 @@
     [self.tableView headerBeginRefreshing];
 }
 
+- (void)exit
+{
+    [_cityButton setTitle:@"请选择城市" forState:UIControlStateNormal];
+    [_noRecordView setHidden:NO];
+}
 
 - (void)startRequst
 {

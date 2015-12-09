@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "LCTabBarController.h"
 #import "UMFeedback.h"
+#import "UMSocial.h"
+#import "UMSocialSinaHandler.h"
 
 @interface AppDelegate ()
 
@@ -19,13 +21,28 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [UMFeedback setAppkey:@"560b44a5e0f55a5eaa00297e"];
+    [UMFeedback setAppkey:@"566786b7e0f55a0f5200207a"];
+    [UMSocialSinaHandler openSSOWithRedirectURL:@"https://www.baidu.com"];
+    
+    [UMSocialData setAppKey:@"566786b7e0f55a0f5200207a"];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [[LCTabBarController alloc] init];
     
     [self.window makeKeyAndVisible];
     return YES;
 }
+
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    BOOL result = [UMSocialSnsService handleOpenURL:url];
+    if (result == FALSE) {
+        //调用其他SDK，例如支付宝SDK等
+    }
+    return result;
+}
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

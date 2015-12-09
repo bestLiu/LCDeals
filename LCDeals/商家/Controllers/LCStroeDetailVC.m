@@ -47,9 +47,11 @@
     //删除底部查找模块
     [js appendString:@"var homeSearch = document.getElementsByClassName('home-search')[0];"];
     [js appendString:@"homeSearch.parentNode.removeChild(homeSearch);"];
+    
+    [js appendString:@"var simpleSearch = document.getElementsByClassName('simpleFunction')[0];"];
+    [js appendString:@"simpleSearch.parentNode.removeChild(simpleSearch);"];
     [webView stringByEvaluatingJavaScriptFromString:js]; //执行JS代码
-
-
+    
 //    NSLog(@"absoluteString--->>>>>%@",webView.request.URL.absoluteString);
 //    if ([webView.request.URL.absoluteString isEqualToString:self.store.business_url]) {
 //        // 旧的HTML5页面加载完毕
@@ -57,7 +59,7 @@
 //    } else { // 详情页面加载完毕
         // 用来拼接所有的JS
 //    }
-    // 获得页面
+//     获得页面
 //        NSString *html = [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('html')[0].outerHTML;"];
 //        NSLog(@"%@",html);
 }

@@ -22,7 +22,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   LBXScan:
-    :commit: 1229917e90c3638bd0cf68d300e26a9448de550e
+    :commit: eebd7ad21f3159f05e1e5438536bc4916be0da53
     :git: https://github.com/MxABC/LBXScan.git
 
 SPEC CHECKSUMS:

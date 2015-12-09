@@ -55,6 +55,9 @@ static NSString *const reuseIdentifier = @"mainCell";
     self.backButton.hidden = YES;
     self.navigationTitle = @"发现";
     [self setupSubViews];
+    
+    //监听退出当前账号
+    [LCNotifiCationCenter addObserver:self selector:@selector(exit) name:LCMoreViewControllerExitSucceed object:nil];
 }
 
 
@@ -192,5 +195,10 @@ static NSString *const reuseIdentifier = @"mainCell";
     [self pushViewController:cityVc animated:YES];
 }
 
+- (void)exit
+{
+    [_cityButton setTitle:@"请选择城市" forState:UIControlStateNormal];
+    [_noRecordView setHidden:NO];
+}
 
 @end

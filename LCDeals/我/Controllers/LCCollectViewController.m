@@ -11,9 +11,10 @@
 #import "LCDealTool.h"
 #import "Masonry.h"
 #import "LCDetailViewController.h"
+#import "UMSocial.h"
 
 
-@interface LCCollectViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface LCCollectViewController ()<UITableViewDataSource, UITableViewDelegate,UMSocialUIDelegate>
 
 @property (weak, nonatomic) UITableView *tableView;
 @property (weak, nonatomic) UIImageView *noDataView;
@@ -104,7 +105,12 @@ static NSString *const reuseIdentifier = @"mainCell";
     __weak typeof(self) weakSelf = self;
     UITableViewRowAction *action1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"分享" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
 // TODO 集成友盟分享
-        
+        [UMSocialSnsService presentSnsIconSheetView:self
+    appKey:@"566786b7e0f55a0f5200207a"
+    shareText:@"你要分享的文字"
+    shareImage:[UIImage imageNamed:@"icon.png"]
+    shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToWechatSession,UMShareToQQ,UMShareToYXSession,UMShareToWechatTimeline,UMShareToWechatSession,UMShareToQzone,UMShareToTencent,nil]
+    delegate:self];
         
         _tableView.editing = NO;
     }];
@@ -132,5 +138,19 @@ static NSString *const reuseIdentifier = @"mainCell";
 {
     
 }
+
+#pragma mark - UMSocialUIDelegate
+// 点击分享列表页面，之后的回调方法，你可以通过判断不同的分享平台，来设置分享内容。
+-(void)didSelectSocialPlatform:(NSString *)platformName withSocialData:(UMSocialData *)socialData
+{
+    LCLog(@"platformName--->>>>%@, socialData---->>>>>>%@",platformName,socialData);
+}
+//各个页面执行授权完成、分享完成、或者评论完成时的回调函数
+-(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
+{
+    LCLog(@"授权分享完成的回调response----->>>>>>>%@",response);
+}
+
+
 
 @end

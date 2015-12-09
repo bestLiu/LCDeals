@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D42A638600814168360DD0FC"
+               BlueprintIdentifier = "72760FFBAEF01A0835561057"
                BuildableName = "libUMengFeedback.a"
                BlueprintName = "UMengFeedback"
                ReferencedContainer = "container:Pods.xcodeproj">

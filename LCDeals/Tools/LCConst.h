@@ -62,3 +62,5 @@ extern NSString *const LCCollectDealKey;
 extern NSString *const LCCategoryMapDidChangeNotification;
 extern NSString *const LCCategoryMapSelectKey;
 extern NSString *const LCSubCategoryMapSelectKey;
+
+extern NSString *const LCMoreViewControllerExitSucceed;

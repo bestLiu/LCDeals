@@ -22,3 +22,5 @@ NSString *const LCIsCollectKey = @"LCIsCollectKey";
 NSString *const LCCategoryMapDidChangeNotification = @"LCCategoryMapDidChangeNotification";
 NSString *const LCCategoryMapSelectKey = @"LCCategoryMapSelectKey";
 NSString *const LCSubCategoryMapSelectKey = @"LCSubCategoryMapSelectKey";
+
+NSString *const LCMoreViewControllerExitSucceed = @"LCMoreViewControllerExitSucceed";

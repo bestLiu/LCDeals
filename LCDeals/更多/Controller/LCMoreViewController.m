@@ -12,6 +12,7 @@
 #import "LCMoreTableViewCell.h"
 #import "LCScanViewController.h"
 #import "UMFeedback.h"
+#import "LCAboutUSViewController.h"
 
 @interface LCMoreViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -35,7 +36,7 @@ static NSString *const reuseIdentifier = @"moreCell";
         NSMutableArray *section3 = @[@{kCell_Title : @"意见反馈",kCell_Arrow : @"right_arrow"},
                                      @{kCell_Title : @"关于我们",kCell_Arrow : @"right_arrow"},
                                      @{kCell_Title : @"帮助",kCell_Arrow : @"right_arrow"}].copy;
-        NSMutableArray *section4 = @[@{kCell_Title : @"安全退出", @"islast":@YES}].copy;
+        NSMutableArray *section4 = @[@{kCell_Title : @"退出当前账号", @"islast":@YES}].copy;
         _datas = [[NSMutableArray alloc] initWithObjects:section1,section2,section3,section4, nil];
     }
     
@@ -117,6 +118,12 @@ static NSString *const reuseIdentifier = @"moreCell";
                     [self pushViewController:[UMFeedback feedbackViewController] animated:YES];
                 }
                     break;
+                case 1:
+                {
+                    LCAboutUSViewController *abountVC = [[LCAboutUSViewController alloc] init];
+                    [self pushViewController:abountVC animated:YES];
+                }
+                    break;
                     
                 default:
                     break;
@@ -125,7 +132,22 @@ static NSString *const reuseIdentifier = @"moreCell";
             break;
         case 3:
         {
-            
+            //退出
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"确认退出?" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+            UIAlertAction *actionConfirm = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                //确认退出
+                //1.清理沙盒
+                [userDefaults removeObjectForKey:kUserInfoKey];
+                [userDefaults removeObjectForKey:kUDCityNameKey];
+                
+                //2.告诉外面的控制器
+                [LCNotifiCationCenter postNotificationName:LCMoreViewControllerExitSucceed object:self];
+                
+            }];
+            [alertController addAction:actionCancel];
+            [alertController addAction:actionConfirm];
+            [self presentViewController:alertController animated:YES completion:nil];
         }
             break;
             
