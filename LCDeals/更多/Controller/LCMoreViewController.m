@@ -13,6 +13,7 @@
 #import "LCScanViewController.h"
 #import "UMFeedback.h"
 #import "LCAboutUSViewController.h"
+#import "LCHelpViewController.h"
 
 @interface LCMoreViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -122,6 +123,12 @@ static NSString *const reuseIdentifier = @"moreCell";
                 {
                     LCAboutUSViewController *abountVC = [[LCAboutUSViewController alloc] init];
                     [self pushViewController:abountVC animated:YES];
+                }
+                    break;
+                case 2:
+                {
+                    LCHelpViewController *helpVC= [[LCHelpViewController alloc] init];
+                    [self pushViewController:helpVC animated:YES];
                 }
                     break;
                     

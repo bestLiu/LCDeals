@@ -66,6 +66,7 @@
 		891CB4911C15395D00DED34E /* LCScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 891CB48F1C15395D00DED34E /* LCScanViewController.m */; };
 		891CB4961C1539B200DED34E /* LCAboutUSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 891CB4941C1539B200DED34E /* LCAboutUSViewController.m */; };
 		891CB4971C1539B200DED34E /* LCAboutUSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 891CB4951C1539B200DED34E /* LCAboutUSViewController.xib */; };
+		893270951C19780700C999A8 /* LCHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 893270931C19780700C999A8 /* LCHelpViewController.m */; };
 		8944B5031C17CD6300F40E52 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8944B5001C17CD6300F40E52 /* SVProgressHUD.bundle */; };
 		8944B5041C17CD6300F40E52 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8944B5021C17CD6300F40E52 /* SVProgressHUD.m */; };
 		8944B5AD1C17E81300F40E52 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8944B55D1C17E81300F40E52 /* UMSocialLocalizable.strings */; };
@@ -308,6 +309,8 @@
 		891CB4931C1539B200DED34E /* LCAboutUSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCAboutUSViewController.h; sourceTree = "<group>"; };
 		891CB4941C1539B200DED34E /* LCAboutUSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCAboutUSViewController.m; sourceTree = "<group>"; };
 		891CB4951C1539B200DED34E /* LCAboutUSViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCAboutUSViewController.xib; sourceTree = "<group>"; };
+		893270921C19780700C999A8 /* LCHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCHelpViewController.h; sourceTree = "<group>"; };
+		893270931C19780700C999A8 /* LCHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCHelpViewController.m; sourceTree = "<group>"; };
 		8944B5001C17CD6300F40E52 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		8944B5011C17CD6300F40E52 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		8944B5021C17CD6300F40E52 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
@@ -864,6 +867,15 @@
 			path = "关于我们";
 			sourceTree = "<group>";
 		};
+		893270911C1977E900C999A8 /* 帮助 */ = {
+			isa = PBXGroup;
+			children = (
+				893270921C19780700C999A8 /* LCHelpViewController.h */,
+				893270931C19780700C999A8 /* LCHelpViewController.m */,
+			);
+			path = "帮助";
+			sourceTree = "<group>";
+		};
 		8944B4FC1C17CD0000F40E52 /* UMSocial_Sdk_4.4 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1075,6 +1087,7 @@
 				89CEAAB21C04393F0098AB14 /* LCMoreViewController.m */,
 				891CB48B1C15395D00DED34E /* 扫一扫 */,
 				891CB4921C15397D00DED34E /* 关于我们 */,
+				893270911C1977E900C999A8 /* 帮助 */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1620,6 +1633,7 @@
 				89EEEE541BFDA49D00137117 /* MASViewAttribute.m in Sources */,
 				890E31501BFC70B10096CC89 /* MJConst.m in Sources */,
 				890E31111BFC70A40096CC89 /* MJRefreshFooterView.m in Sources */,
+				893270951C19780700C999A8 /* LCHelpViewController.m in Sources */,
 				890E317C1BFC70B90096CC89 /* MKAnnotationView+WebCache.m in Sources */,
 				89D0ED831C05AFD500AD2C13 /* LCMapViewController.m in Sources */,
 				89CEAAE31C044E3D0098AB14 /* LCCenterLineLabel.m in Sources */,
