@@ -11,4 +11,6 @@
 
 @interface LCMoreViewController : LCBaseViewController
 
+- (void)push2ScanViewController;
+
 @end

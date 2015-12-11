@@ -29,4 +29,5 @@
 
 + (UIImage *)imageWithColor:(UIColor *)color andSize:(CGSize)size;
 
++ (CGFloat)getTextHeightwithText:(NSString *)text sizeFont:(CGFloat)font;
 @end

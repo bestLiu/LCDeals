@@ -66,6 +66,7 @@
 		891CB4911C15395D00DED34E /* LCScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 891CB48F1C15395D00DED34E /* LCScanViewController.m */; };
 		891CB4961C1539B200DED34E /* LCAboutUSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 891CB4941C1539B200DED34E /* LCAboutUSViewController.m */; };
 		891CB4971C1539B200DED34E /* LCAboutUSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 891CB4951C1539B200DED34E /* LCAboutUSViewController.xib */; };
+		891E85821C1AA8AA003DB381 /* LCMessageSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 891E85811C1AA8AA003DB381 /* LCMessageSetViewController.m */; };
 		893270951C19780700C999A8 /* LCHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 893270931C19780700C999A8 /* LCHelpViewController.m */; };
 		8944B5031C17CD6300F40E52 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8944B5001C17CD6300F40E52 /* SVProgressHUD.bundle */; };
 		8944B5041C17CD6300F40E52 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8944B5021C17CD6300F40E52 /* SVProgressHUD.m */; };
@@ -309,6 +310,8 @@
 		891CB4931C1539B200DED34E /* LCAboutUSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCAboutUSViewController.h; sourceTree = "<group>"; };
 		891CB4941C1539B200DED34E /* LCAboutUSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCAboutUSViewController.m; sourceTree = "<group>"; };
 		891CB4951C1539B200DED34E /* LCAboutUSViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCAboutUSViewController.xib; sourceTree = "<group>"; };
+		891E85801C1AA8AA003DB381 /* LCMessageSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCMessageSetViewController.h; sourceTree = "<group>"; };
+		891E85811C1AA8AA003DB381 /* LCMessageSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCMessageSetViewController.m; sourceTree = "<group>"; };
 		893270921C19780700C999A8 /* LCHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCHelpViewController.h; sourceTree = "<group>"; };
 		893270931C19780700C999A8 /* LCHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCHelpViewController.m; sourceTree = "<group>"; };
 		8944B5001C17CD6300F40E52 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
@@ -867,6 +870,15 @@
 			path = "关于我们";
 			sourceTree = "<group>";
 		};
+		891E857F1C1AA892003DB381 /* 消息设置 */ = {
+			isa = PBXGroup;
+			children = (
+				891E85801C1AA8AA003DB381 /* LCMessageSetViewController.h */,
+				891E85811C1AA8AA003DB381 /* LCMessageSetViewController.m */,
+			);
+			path = "消息设置";
+			sourceTree = "<group>";
+		};
 		893270911C1977E900C999A8 /* 帮助 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1087,6 +1099,7 @@
 				89CEAAB21C04393F0098AB14 /* LCMoreViewController.m */,
 				891CB48B1C15395D00DED34E /* 扫一扫 */,
 				891CB4921C15397D00DED34E /* 关于我们 */,
+				891E857F1C1AA892003DB381 /* 消息设置 */,
 				893270911C1977E900C999A8 /* 帮助 */,
 			);
 			path = Controller;
@@ -1554,6 +1567,7 @@
 				89CEAAF01C0469580098AB14 /* LCStoreTableViewCell.m in Sources */,
 				89ABE2AB1C031A40002AE569 /* LCPersonalTableViewCell.m in Sources */,
 				890E30441BFC6E100096CC89 /* LCBaseNavgationController.m in Sources */,
+				891E85821C1AA8AA003DB381 /* LCMessageSetViewController.m in Sources */,
 				890E30651BFC707C0096CC89 /* DPRequest.m in Sources */,
 				89D0ED711C05632900AD2C13 /* LCSortButton.m in Sources */,
 				890E31571BFC70B10096CC89 /* NSObject+MJCoding.m in Sources */,
@@ -1775,6 +1789,7 @@
 			baseConfigurationReference = B2B897C3E7D55C33684E1FAD /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1791,7 +1806,7 @@
 					"\"${PODS_ROOT}/Headers/Public/LBXScan\"",
 				);
 				INFOPLIST_FILE = LCDeals/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1820,6 +1835,7 @@
 			baseConfigurationReference = B1AAFF4CC717BD80C3CAE7C7 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1836,7 +1852,7 @@
 					"\"${PODS_ROOT}/Headers/Public/LBXScan\"",
 				);
 				INFOPLIST_FILE = LCDeals/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

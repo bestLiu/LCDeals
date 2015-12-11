@@ -57,7 +57,7 @@ static NSString *const reuseIdentifier = @"personalCell";
     NSDictionary *info = [userDefaults objectForKey:kUserInfoKey];
     [headerView.headButton setBackgroundImage:[UIImage imageWithData:info[@"headImage"]] forState:UIControlStateNormal];
     headerView.nickNameLabel.text = info[@"nickName"];
-    headerView.addressLabel.text = [NSString stringWithFormat:@"常居地：%@",info[@"address"]];
+    headerView.addressLabel.text = info[@"address"]?[NSString stringWithFormat:@"常居地：%@",info[@"address"]]:@"常居地：";
     [headerView addGestureRecognizer:tap];
     _headView = headerView;
     
@@ -130,7 +130,7 @@ static NSString *const reuseIdentifier = @"personalCell";
 {
     [_headView.headButton setBackgroundImage:[UIImage imageWithData:info[@"headImage"]] forState:UIControlStateNormal];
     _headView.nickNameLabel.text = info[@"nickName"];
-    _headView.addressLabel.text = [NSString stringWithFormat:@"常居地：%@",info[@"address"]];
+    _headView.addressLabel.text = info[@"address"]?[NSString stringWithFormat:@"常居地：%@",info[@"address"]]:@"常居地：";
     
 }
 

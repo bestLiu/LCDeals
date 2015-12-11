@@ -14,11 +14,13 @@
 #import "UMFeedback.h"
 #import "LCAboutUSViewController.h"
 #import "LCHelpViewController.h"
+#import "SDImageCache.h"
 
 @interface LCMoreViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray *datas;
 @property (weak, nonatomic) UITableView *tableView;
+@property (strong, nonatomic)SDImageCache *imageCache;
 
 @end
 
@@ -29,11 +31,16 @@ static NSString *const reuseIdentifier = @"moreCell";
 - (NSMutableArray *)datas
 {
     if (!_datas) {
+        NSUInteger tempSize = [self.imageCache getSize];
+        NSString *tempSizeStr = [NSString stringWithFormat:@"%.2f",tempSize/1000.0/1000.0];
+        NSMutableDictionary  *mutableDic = [NSMutableDictionary dictionaryWithObject:@"清空缓存" forKey:kCell_Title];
+        [mutableDic setObject:tempSizeStr forKey:kCell_count];
+        
         NSMutableArray *section1 = @[@{kCell_Title : @"扫一扫",kCell_Arrow : @"right_arrow"}].copy;
         NSMutableArray *section2 = @[@{kCell_Title : @"省流量模式", kCell_Switch : @"1"},
                                      @{kCell_Title : @"分享",kCell_Arrow : @"right_arrow"},
                                      @{kCell_Title : @"消息设置",kCell_Arrow : @"right_arrow"},
-                                     @{kCell_Title : @"清空缓存", kCell_count : @"count"}].copy;
+                                       mutableDic].copy;
         NSMutableArray *section3 = @[@{kCell_Title : @"意见反馈",kCell_Arrow : @"right_arrow"},
                                      @{kCell_Title : @"关于我们",kCell_Arrow : @"right_arrow"},
                                      @{kCell_Title : @"帮助",kCell_Arrow : @"right_arrow"}].copy;
@@ -43,6 +50,13 @@ static NSString *const reuseIdentifier = @"moreCell";
     
     return _datas;
 }
+- (SDImageCache *)imageCache
+{
+    if (!_imageCache) {
+        self.imageCache = [SDImageCache sharedImageCache];
+    }
+    return _imageCache;
+}
 
 - (void)viewDidLoad
 {
@@ -50,6 +64,10 @@ static NSString *const reuseIdentifier = @"moreCell";
     self.backButton.hidden = YES;
     self.navigationTitle = @"更多";
     [self setupSubviews];
+    
+    
+    
+    
 }
 
 - (void)setupSubviews
@@ -77,6 +95,7 @@ static NSString *const reuseIdentifier = @"moreCell";
 {
     LCMoreTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     cell.datas = self.datas[indexPath.section][indexPath.row];
+    
     return cell;
 }
 
@@ -84,48 +103,78 @@ static NSString *const reuseIdentifier = @"moreCell";
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.section) {
-        case 0:
+        case 0://扫一扫
         {
-            //设置扫码区域参数
-            LBXScanViewStyle *style = [[LBXScanViewStyle alloc]init];
-            style.centerUpOffset = 44;
-            style.photoframeAngleStyle = LBXScanViewPhotoframeAngleStyle_Outer;
-            style.photoframeLineW = 6;
-            style.photoframeAngleW = 24;
-            style.photoframeAngleH = 24;
-            
-            style.anmiationStyle = LBXScanViewAnimationStyle_LineMove;
-            
-            //qq里面的线条图片
-            UIImage *imgLine = [UIImage imageNamed:@"CodeScan.bundle/qrcode_scan_light_green"];
-            style.animationImage = imgLine;
-            
-           LCScanViewController *scanViewController = [[LCScanViewController alloc] init];
-            scanViewController.style = style;
-            [self pushViewController:scanViewController animated:YES];
+            [self push2ScanViewController];    
         }
             break;
         case 1:
         {
+            switch (indexPath.row) {
+                case 0://省流量模式
+                {
+                    
+                }
+                    break;
+                case 1://分享
+                {
+                    
+                }
+                    break;
+                case 2://消息设置
+                {
+                    
+                }
+                    break;
+                case 3://清空缓存
+                {
+                    NSString *msg = [NSString stringWithFormat:@"当前缓存：%.2fM\n确认清理",[self.imageCache getSize]/1000.0/1000.0];
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:msg preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+                    UIAlertAction *actionConfirm = [UIAlertAction actionWithTitle:@"清理" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                        [self.imageCache clearDiskOnCompletion:^{
+                            //改变数据源
+                            NSMutableDictionary *dic = _datas[indexPath.section][indexPath.row];
+                            NSUInteger tempSize = [self.imageCache getSize];
+                            NSString *tempSizeStr = [NSString stringWithFormat:@"%.2f",tempSize/1000.0/1000.0];
+                            [dic setObject:tempSizeStr forKey:kCell_count];
+                            
+                            //刷新表
+                            [_tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                        }];
+                        
+                    }];
+                    [alertController addAction:actionCancel];
+                    [alertController addAction:actionConfirm];
+                    [self presentViewController:alertController animated:YES completion:nil];
+
+                    
+                }
+                    break;
+                    
+                    
+                default:
+                    break;
+            }
             
         }
             break;
         case 2:
         {
             switch (indexPath.row) {
-                case 0:
+                case 0://反馈
                 {
                     [self.navigationController setNavigationBarHidden:NO animated:NO];
                     [self pushViewController:[UMFeedback feedbackViewController] animated:YES];
                 }
                     break;
-                case 1:
+                case 1://关于我们
                 {
                     LCAboutUSViewController *abountVC = [[LCAboutUSViewController alloc] init];
                     [self pushViewController:abountVC animated:YES];
                 }
                     break;
-                case 2:
+                case 2://帮助中心
                 {
                     LCHelpViewController *helpVC= [[LCHelpViewController alloc] init];
                     [self pushViewController:helpVC animated:YES];
@@ -161,6 +210,28 @@ static NSString *const reuseIdentifier = @"moreCell";
         default:
             break;
     }
+}
+
+- (void)push2ScanViewController
+{
+    //设置扫码区域参数
+    LBXScanViewStyle *style = [[LBXScanViewStyle alloc]init];
+    style.centerUpOffset = 44;
+    style.photoframeAngleStyle = LBXScanViewPhotoframeAngleStyle_Outer;
+    style.photoframeLineW = 6;
+    style.photoframeAngleW = 24;
+    style.photoframeAngleH = 24;
+    
+    style.anmiationStyle = LBXScanViewAnimationStyle_LineMove;
+    
+    //qq里面的线条图片
+    UIImage *imgLine = [UIImage imageNamed:@"CodeScan.bundle/qrcode_scan_light_green"];
+    style.animationImage = imgLine;
+    
+    LCScanViewController *scanViewController = [[LCScanViewController alloc] init];
+    scanViewController.style = style;
+    [self pushViewController:scanViewController animated:YES];
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

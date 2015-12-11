@@ -71,7 +71,14 @@ static NSArray *_sorts;
     img = UIGraphicsGetImageFromCurrentImageContext();
     
     UIGraphicsEndImageContext();
-    
     return img;
 }
+
++ (CGFloat)getTextHeightwithText:(NSString *)text sizeFont:(CGFloat)font
+{
+   CGRect rect = [text boundingRectWithSize:CGSizeMake(SCREEN_WIDTH, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:font]} context:nil];
+    return ceilf(rect.size.height);
+}
+
+
 @end

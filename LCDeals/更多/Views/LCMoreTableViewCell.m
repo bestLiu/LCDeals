@@ -34,7 +34,7 @@
     }
     if (datas[kCell_count]) {
         UILabel *countLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 80, 10, 70, 25)];
-        countLabel.text = @"0.00";
+        countLabel.text = datas[kCell_count];
         countLabel.textAlignment = NSTextAlignmentRight;
         [self.contentView addSubview:countLabel];
     }

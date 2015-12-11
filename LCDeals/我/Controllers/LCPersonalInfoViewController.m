@@ -7,6 +7,7 @@
 //
 
 #import "LCPersonalInfoViewController.h"
+#import <Photos/Photos.h>
 
 @interface LCPersonalInfoViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -43,22 +44,83 @@
     _telTF.text = userInfo[@"tel"];
 
     NSData *imageData = userInfo[@"headImage"];
-    [_headButton setBackgroundImage:[UIImage imageWithData:imageData] forState:UIControlStateNormal];
+    if (!imageData) {
+         [_headButton setBackgroundColor:[UIColor grayColor]];
+    }else{
+        [_headButton setBackgroundImage:[UIImage imageWithData:imageData] forState:UIControlStateNormal];
+    }
+    
     
 }
 - (IBAction)headButtonAciton:(id)sender
 {
-    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    imagePicker.delegate = self;
-    imagePicker.allowsEditing = YES;
-    [self.navigationController presentViewController:imagePicker animated:YES completion:nil];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *actionCamera = [UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+        if (status == PHAuthorizationStatusRestricted||status == PHAuthorizationStatusDenied) {
+            [SVProgressHUD showErrorWithStatus:@"您没有授权我们访问您的相册和照相机,请在\"设置->隐私->照片\"处进行设置"];
+            return;
+        }
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        if ([UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera]) {
+            imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            imagePicker.delegate = self;
+            imagePicker.allowsEditing = YES;
+            [self.navigationController presentViewController:imagePicker animated:YES completion:nil];
+        }else{
+            [SVProgressHUD showErrorWithStatus:@"您没有摄像头"];
+        }
+        
+    }];
+    
+    UIAlertAction *actionLibrary = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
+        PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+        if (status == PHAuthorizationStatusRestricted||status == PHAuthorizationStatusDenied) {
+            [SVProgressHUD showErrorWithStatus:@"您没有授权我们访问您的相册和照相机,请在\"设置->隐私->照片\"处进行设置"];
+            return;
+        }
+         UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        if ([UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypePhotoLibrary]) {
+            imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            imagePicker.delegate = self;
+            imagePicker.allowsEditing = YES;
+            [self.navigationController presentViewController:imagePicker animated:YES completion:nil];
+        }else{
+            [SVProgressHUD showErrorWithStatus:@"您没有相册"];
+        }
+
+
+    }];
+    [alertController addAction:actionCamera];
+    [alertController addAction:actionLibrary];
+    [self presentViewController:alertController animated:YES completion:nil];
+
+
 }
 
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
-    [_headButton setBackgroundImage:info[UIImagePickerControllerEditedImage] forState:UIControlStateNormal];
+    //得到图片
+    UIImage * image = [info objectForKey:UIImagePickerControllerEditedImage];
+    
+    //如果是相机则将图片存入相册
+    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    }
+    UIImageOrientation imageOrientation=image.imageOrientation;
+    if(imageOrientation!=UIImageOrientationUp)
+    {
+        // 原始图片可以根据照相时的角度来显示，但UIImage无法判定，于是出现获取的图片会向左转９０度的现象。
+        // 以下为调整图片角度的部分
+        UIGraphicsBeginImageContext(image.size);
+        [image drawInRect:CGRectMake(0, 0, image.size.width, image.size.height)];
+        image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        // 调整图片角度完毕
+    }
+
+    [_headButton setBackgroundImage:image forState:UIControlStateNormal];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker

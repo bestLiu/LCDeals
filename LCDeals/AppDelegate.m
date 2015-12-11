@@ -11,6 +11,9 @@
 #import "UMFeedback.h"
 #import "UMSocial.h"
 #import "UMSocialSinaHandler.h"
+#import "LCDiscoverViewController.h"
+#import "LCMoreViewController.h"
+#import "LCBaseNavgationController.h"
 
 @interface AppDelegate ()
 
@@ -28,6 +31,20 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [[LCTabBarController alloc] init];
     
+    
+    //添加3DTouch功能
+    if ([UIDevice currentDevice].systemVersion.floatValue >= 9.0 ) {
+        UIApplicationShortcutIcon *icon1 = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeSearch];
+        UIMutableApplicationShortcutItem *item1 = [[UIMutableApplicationShortcutItem alloc] initWithType:@"1" localizedTitle:@"搜索" localizedSubtitle:nil icon:icon1 userInfo:nil];
+        
+        UIApplicationShortcutIcon *icon2 = [UIApplicationShortcutIcon iconWithTemplateImageName:@"icon_homepage_scan"];
+        UIMutableApplicationShortcutItem *item2 = [[UIMutableApplicationShortcutItem alloc] initWithType:@"1" localizedTitle:@"扫一扫" localizedSubtitle:nil icon:icon2 userInfo:nil];
+        
+        application.shortcutItems = @[item1,item2];
+        
+    }
+
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -38,11 +55,43 @@
     BOOL result = [UMSocialSnsService handleOpenURL:url];
     if (result == FALSE) {
         //调用其他SDK，例如支付宝SDK等
+        
+        
+        
+        
     }
     return result;
 }
 
 
+
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void(^)(BOOL succeeded))completionHandler
+{
+    BOOL isSucceeded = [self handleShortcutItemPressed:shortcutItem];
+    completionHandler(isSucceeded);
+}
+
+- (BOOL)handleShortcutItemPressed:(UIApplicationShortcutItem *)shortcutItem
+{
+    if ([shortcutItem.localizedTitle isEqualToString:@"搜索"]) {
+        AppDelegate *app = [UIApplication sharedApplication].delegate;
+        UITabBarController *tabBarController = (UITabBarController *)app.window.rootViewController;
+        tabBarController.selectedIndex = 1;
+    }else{
+        AppDelegate *app = [UIApplication sharedApplication].delegate;
+        UITabBarController *tabBarController = (UITabBarController *)app.window.rootViewController;
+        tabBarController.selectedIndex = 4;
+        LCBaseNavgationController *nav = tabBarController.selectedViewController;
+        for (UIViewController *viewController in nav.viewControllers) {
+            if ([viewController isKindOfClass:NSClassFromString(@"LCMoreViewController")]) {
+                LCMoreViewController *moreViewController = (LCMoreViewController *)viewController;
+                [moreViewController push2ScanViewController];
+            }
+        }
+
+    }
+    return YES;
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
