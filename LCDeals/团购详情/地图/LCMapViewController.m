@@ -24,7 +24,6 @@
 @property (nonatomic, strong) CLLocationManager *manager;
 @property (nonatomic, strong) CLGeocoder *coder;
 @property (nonatomic, copy) NSString *city;
-@property (nonatomic, strong) UIPopoverController *categoryPopover;
 @property (nonatomic, copy) NSString *selectedCategoryName;
 @property (nonatomic, strong) DPRequest *lastRequest;
 @property (nonatomic, assign) CLLocationCoordinate2D currentCoordinate;
@@ -125,8 +124,10 @@
 }
 
 #pragma mark -MKMapViewDelegate
+int  count = 0;
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
+    count += 1;
     userLocation.title = @"不是当前位置";
     userLocation.subtitle = @"才怪";
     self.currentCoordinate = userLocation.coordinate;
@@ -134,7 +135,9 @@
     //让地图显示用户所在位置
     MKCoordinateSpan span = MKCoordinateSpanMake(0.05, 0.05);//地图经纬度跨度，跨度越小，地图显示的位置越好。
     MKCoordinateRegion region = MKCoordinateRegionMake(userLocation.location.coordinate, span);
-    [mapView setRegion:region];
+    if (count == 1) {
+        [mapView setRegion:region];
+    }
     
     //知道经纬度 ---->>>>> 获取城市名(地理反编码)
     [self.coder reverseGeocodeLocation:userLocation.location completionHandler:^(NSArray *placemarks, NSError *error) {
@@ -148,6 +151,9 @@
         
     }];
     
+}
+- (void)mapViewDidStopLocatingUser:(MKMapView *)mapView
+{
     
 }
 
@@ -201,7 +207,14 @@
     
     return annoView;
 }
-
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+    
+}
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    
+}
 
 #pragma mark - 大众点评请求
 - (void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result
