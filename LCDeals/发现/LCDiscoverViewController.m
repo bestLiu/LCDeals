@@ -174,6 +174,7 @@ static NSString *const reuseIdentifier = @"mainCell";
 {
     if (request != self.lastRequest) return; //如果不是最后一个请求 就结束
     
+    [self.deals removeAllObjects];
     //MJExtension 的使用
     NSArray *deals = [LCDeal objectArrayWithKeyValuesArray:result[@"deals"]];
     [self.deals addObjectsFromArray:deals];

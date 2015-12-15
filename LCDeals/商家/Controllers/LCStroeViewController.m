@@ -219,16 +219,9 @@ static NSString *const reuseIdentifier = @"stroeCell";
 - (void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result
 {
     NSArray *deals = [LCStore objectArrayWithKeyValuesArray:result[@"businesses"]];
-//    if (self.page == 1) {//第一页数据,清除之前的旧数据
-        [self.stores removeAllObjects];
-//    }
+    [self.stores removeAllObjects];
     [self.stores addObjectsFromArray:deals];
     [self.tableView reloadData];
-}
-
-- (void)request:(DPRequest *)request didFailWithError:(NSError *)error
-{
-    
 }
 
 @end
